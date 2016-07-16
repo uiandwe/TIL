@@ -12,7 +12,7 @@ Today I Learned
 * `data-`속성은 무엇을 하는 것인가요?
 * HTML4에서 콘텐츠 모델(content models)은 무엇이며, HTML5의 그것과 다른 점은 무엇인가요?
 * HTML5를 오픈웹플랫폼(open web platform)으로 생각해본다면, 어떤 것들로 구성돼 있을까요?
-* 쿠키(Cookies)와 세션저장소(sessionStorage)와 로컬저장소(localStorage)의 차이점을 설명해주세요.
+* (/HTML/쿠키(Cookies)와%20세션저장소(sessionStorage)와%20로컬저장소(localStorage)의%20차이점을%20설명해주세요.)
 * 
 
 ## CSS 관련 질문들:

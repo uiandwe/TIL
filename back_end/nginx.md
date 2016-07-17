@@ -19,4 +19,4 @@ nginx는 쓰레드를 적게 사용하는 구조이다. 또한 쓰레드를 적�
 사용하여 적은 worker에서 동작이 된다. 다만 많은 요청을 처리하기 위해서 client 개수는 늘릴 필요는 있다.
 
 ##단점 모듈 개발이 어려워 아파치에 비해 확장 모듈이 전무. 
-예로 윈도우용 nginx은 32비트이며 소켓연결또한 select()만을 지원…(안쓰고 말지)
+예로 윈도우용 nginx은 32비트이며 (소켓연결또한 select만을 지원)[https://github.com/uiandwe/TIL/blob/master/back_end/socket.md] 안쓰고 말지

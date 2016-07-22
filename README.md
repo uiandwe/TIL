@@ -66,7 +66,8 @@ function Person(){} var person = Person() var person = new Person()
 	* 정답 : 1999년 - 초보개발자를 걸러내기 위한 시절
 * UA문자열을 이용하여 기능 검출(feature detection)과 기능 추론(feature inference)의 차이점을 설명 하시오.
 * AJAX에 관해 가능한 자세히 설명하세요.
-* JSONP가 어떻게 동작 되는지 설명하세요.(그리고,실제 AJAX와 어떻게 다른지 설명하세요.)
+* [JSONP가 어떻게 동작 되는지 설명하세요.(그리고,실제 AJAX와 어떻게 다른지 설명하세요.)](JS/JSONP%EA%B0%80%20%EC%96%B4%EB%96%BB%EA%B2%8C%20%EB%8F%99%EC%9E%91%20%EB%90%98%EB%8A%94%EC%A7%80%20%EC%84%A4%EB%AA%85%ED%95%98%EC%84%B8%EC%9A%94.(%EA%B7%B8%EB%A6%AC%EA%B3%A0%2C%EC%8B%A4%EC%A0%9C%20AJAX%EC%99%80%20%EC%96%B4%EB%96%BB%EA%B2%8C%20%EB%8B%A4%EB%A5%B8%EC%A7%80%20%EC%84%A4%EB%AA%85%ED%95%98%EC%84%B8%EC%9A%94.))
+
 * 기존에 Javascript 템플릿을 사용한 적이 있나요? 만약에 있다면, 어떠한 방식으로 사용했는지 말씀해주세요.
 * "호이스팅(Hoisting)"에 대해서 설명 하시오.
 * FOUC가 무엇이며 FOUC를 어떻게 방지하나요?

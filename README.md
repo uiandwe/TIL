@@ -139,8 +139,8 @@ function Person(){} var person = Person() var person = new Person()
 * 
 
 ### 하드웨어
-* 빅 엔디안 vs 리틀 엔디안
-* CPU 구조
+* [빅 엔디안 vs 리틀 엔디안](/hardware/빅%20엔디안%20vs%20리틀%20엔디안.md)
+* [CPU 구조](/hardware/cpu%20구조.md)
 * 프리페치 큐의 성능 향상을 방해하는 요소들
 * 파이프 라이닝 - 여러 명령어 수행 중첩
 * 슈퍼스칼라 오퍼레이션

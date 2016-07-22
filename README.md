@@ -77,7 +77,7 @@ function Person(){} var person = Person() var person = new Person()
 * Document Load 이벤트와 Ready 이벤트의 차이가 무엇인가요?
 * `==`와 `===`의 차이점은 무엇인가요?
 * 브라우저의 URL에서 파라메터를 얻을 수 있는 방법에 대해서 설명하세요.
-* Javascript의 "동일출처정책(the same-origin policy)"에 대해서 설명하세요.
+* (Javascript의 "동일출처정책(the same-origin policy)"에 대해서 설명하세요.)[JS/Javascript의%20"동일출처정책(the%20same-origin%20policy)"에%20대해서%20설명하세요.md]
 * 이벤트 딜리게이션(Event Delegation)에 대해서 설명하세요.
 * Javascript의 상속패턴(inheritance patterns)에 대해서 설명하세요.
 * 다음 코드를 동작하게 만드세요.

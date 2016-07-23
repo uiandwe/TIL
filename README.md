@@ -32,8 +32,7 @@ Today I Learned
 * SVG를 스타일링 하기 위한 편한 방법이 있나요?
 * 인쇄를 하기 위해 웹페이지를 어떻게 최적화 하나요?
 * 효율적인 CSS를 작성하기 위한 "비법(gotchas)"은 어떤 게 있나요?
-* CSS 전처리(CSS preprocessors)를 사용해보셨나요?
-	* 그렇다면, 사용 경험에 기반해 좋았던 점과 나빴던 점을 설명해주세요.
+* [CSS 전처리(CSS preprocessors)를 사용해보셨나요?](/CSS/CSS%20전처리%20CSS%20preprocessors를%20사용해보셨나요.md)
 * 페이지에서 표준 폰트가 아닌 폰트 디자인을 사용할 때 어떤 방식으로 처리하시나요?(웹폰트를 제외하고)
 * CSS Selector가 어떠한 원리로 동작하는지 설명하시오.
 
@@ -43,7 +42,7 @@ Today I Learned
 
 * 사용해 본 Javascript 라이브러리들을 말씀해주세요.
 * Java와 Javascript의 다른 점은 무엇인가요?
-* `undefined`와 `undeclared` 변수는 무엇인가요?
+* [`undefined`와 `undeclared` 변수는 무엇인가요?](/JS/undefined와%20undeclared%20변수는%20무엇인가요%3F.md)
 * 클로져(Closure)는 무엇이며, 어떻게/왜 사용하는지 설명해주세요.
 	* 클로져를 만들 때 선호하는 패턴은 무엇인가요? argyle (IIFEs에만 적용할 수 있다)
 * 익명함수(anonymous functions)는 주로 어떤 상황에서 사용하나요?
@@ -51,8 +50,8 @@ Today I Learned
 	* "네임스페이스(namespacing)"에 대해서 언급을 하면, 보너스 포인트가 있습니다.
 	* 당신의 모듈이 네임스페이스가 없는 상황이라면?
 * 당신의 코드를 어떻게 구성하는지?(모듈 패턴, Class기반 상속?)
-* 호스트 객체(Host Objects)와 네이티브 객체(Native Objects)의 차이점은 무엇인가요?
-* 다음 코드의 차이점은 무엇인가요?
+* [호스트 객체(Host Objects)와 네이티브 객체(Native Objects)의 차이점은 무엇인가요?](/JS/호스트%20객체%20Host%20Objects와%20네이티브%20객체Native%20Objects의%20차이점은%20무엇인가요%3F.md)
+* [다음 코드의 차이점은 무엇인가요?](/JS/다음%20코드의%20차이점은%20무엇인가요%3F.md)
 ```javascript
 function Person(){} var person = Person() var person = new Person()
 ```

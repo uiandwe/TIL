@@ -73,11 +73,11 @@ function Person(){} var person = Person() var person = new Person()
 * 이벤트 버블링(Event Bubbling)에 대해서 설명하세요.
 * "속성(Attribute)"와 "요소(property)"의 차이가 무엇인가요?
 * Javascript 객체를 확장하는 것이 좋지 않은 이유는 무엇인가요?
-* Document Load 이벤트와 Ready 이벤트의 차이가 무엇인가요?
+* [Document Load 이벤트와 Ready 이벤트의 차이가 무엇인가요?](/JS/Document%20Load%20이벤트와%20Ready%20이벤트의%20차이가%20무엇인가요%3F.md)
 * `==`와 `===`의 차이점은 무엇인가요?
 * 브라우저의 URL에서 파라메터를 얻을 수 있는 방법에 대해서 설명하세요.
 * [Javascript의 "동일출처정책(the same-origin policy)"에 대해서 설명하세요.](JS/Javascript의%20"동일출처정책%20the%20same-origin%20policy"에%20대해서%20설명하세요.md)
-* 이벤트 딜리게이션(Event Delegation)에 대해서 설명하세요.
+* [이벤트 딜리게이션(Event Delegation)에 대해서 설명하세요.](/JS/이벤트%20딜리게이션%20Event%20Delegation에%20대해서%20설명하세요.md)
 * Javascript의 상속패턴(inheritance patterns)에 대해서 설명하세요.
 * 다음 코드를 동작하게 만드세요.
 ```javascript

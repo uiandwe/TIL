@@ -147,7 +147,7 @@ function Person(){} var person = Person() var person = new Person()
 * [하이퍼 스레드](/hardware/하이퍼%20스레드.md)
 * [캐쉬 구조와 접근](/hardware/캐쉬%20구조와%20접근.md)
 * [메모리를 고려한 소프트웨어 작성](/hardware/메모리를%20고려한%20소프트웨어%20작성.md)
-* 실행중 메모리의 구성 방식
+* [실행중 메모리의 구성 방식](/hardware/실행중%20메모리의%20구성%20방식.md)
 * 컴파일러 번역과정
 * 컴파일러 파싱
 * 컴파일러 최적화 과정

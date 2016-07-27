@@ -172,6 +172,7 @@ function Person(){} var person = Person() var person = new Person()
 * [전역변수 사용시 주의할 점](/hardware/전역변수%20사용시%20주의할%20점.md) 
 * 
 ### Q&A
+* [http status code](/master/back_end/http%20status%20code.md)
 * 인터페이스란?
 * 애자일
 * 칸반

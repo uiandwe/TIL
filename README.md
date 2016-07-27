@@ -160,10 +160,10 @@ function Person(){} var person = Person() var person = new Person()
 * 지역 / 전역 변수 차이
 * 동적변수
 * 레지스터변수
-* 메모리에서 변수 표현
-* 다차원 배열의 원소 접근
-* 배열 접근 효율 높이기
-* 반복 연산 회피
+* [메모리에서 변수 표현](/hardware/메모리에서%20변수%20표현.md)
+* [다차원 배열의 원소 접근](/hardware/다차원%20배열의%20원소%20접근.md)
+* [배열 접근 효율 높이기](/hardware/배열%20접근%20효율%20높이기.md)
+* [반복 연산 회피](/hardware/반복%20연산%20회피.md)
 * [메모리 할당](/hardware/메모리%20할당.md)
 * [가상 메소드 테이블](/가상%20메소드%20테이블.md)
 * [클래스 상속과 메모리](/hardware/클래스%20상속과%20메모리.md)
@@ -171,6 +171,8 @@ function Person(){} var person = Person() var person = new Person()
 * [반환 주소 저장](/hardware/반환%20주소%20저장.md)
 * [전역변수 사용시 주의할 점](/hardware/전역변수%20사용시%20주의할%20점.md) 
 * 
+
+
 ### Q&A
 * [http status code](/master/back_end/http%20status%20code.md)
 * 인터페이스란?

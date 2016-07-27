@@ -159,7 +159,7 @@ function Person(){} var person = Person() var person = new Person()
 * 활성테이블과 함수 스택
 * 지역 / 전역 변수 차이
 * 동적변수
-* 레지스터변수
+* [레지스터변수](/hardware/레지스터변수.md)
 * [메모리에서 변수 표현](/hardware/메모리에서%20변수%20표현.md)
 * [다차원 배열의 원소 접근](/hardware/다차원%20배열의%20원소%20접근.md)
 * [배열 접근 효율 높이기](/hardware/배열%20접근%20효율%20높이기.md)
@@ -176,8 +176,8 @@ function Person(){} var person = Person() var person = new Person()
 ### Q&A
 * [http status code](/master/back_end/http%20status%20code.md)
 * 인터페이스란?
-* 애자일
-* 칸반
+* [애자일](/q%26a/애자일.md)
+* [칸반](/q&a/칸반.md)
 * 오버라이딩 vs 오버로딩
 * oop의 자신의 의견
 * 클래스 세분화 방법
@@ -190,12 +190,12 @@ function Person(){} var person = Person() var person = new Person()
 * 프레임워크 /  라이블러리
 - 아이덴티티 vs 이퀄리티 (https://www.youtube.com/watch?v=9eQvMygux6g)
 - 추상화 / 캡슐화 / 상속 / 다양성에 대해서 and  둘중 어느게 더 중요한지 ( oop에 대해서 얼마나 생각하는지 )
-- oop 5대 원칙 (https://www.google.co.kr/search?sourceid=chrome-psyapi2&ion=1&espv=2&ie=UTF-8&q=oop%205%EB%8C%80%20%EC%9B%90%EC%B9%99&oq=oop%20&aqs=chrome.4.69i57j0l5.5396j0j7)
+- [oop 5대 원칙](/q%26a/%20oop%205대%20원칙.md)
 * 재귀함수
 * 정규표현식
 * 웹브라우저 작동 방식
-- string ' or "
-* 물어볼 질문들
+* string ' or "
+* [물어볼 질문들](/q&a/물어볼%20질문들.md)
 * 
 * 
 * 

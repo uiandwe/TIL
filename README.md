@@ -86,13 +86,16 @@ function Person(){} var person = Person() var person = new Person()
 * Javascript에서 메모이제이션(memoization, 중복 계산 방지)에 대한 전략을 설명해주세요.
 * 삼항식(Ternary statement)을 사용하는 이유는 무엇이고, 그것을 표현하기 위한 연산자 단어는 무엇인가요?
 * arity는 어떠한 함수인가요?
-* 
+
+
 ###back-end
 * [socket](/back_end/socket.md)
 * [nginx](/back_end/nginx.md)
 * 최적의 서버 구성도
 * 채팅에서의 세션 유지 방법은?
 * [http status code](/back_end/http%20status%20code.md)
+* [db 테이블에 pk가 두개 이상인 경우](/back_end/db%20pk가%20두개%20있는%20경우.md)
+
 
 ###php
 

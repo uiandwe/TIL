@@ -88,10 +88,11 @@ function Person(){} var person = Person() var person = new Person()
 * arity는 어떠한 함수인가요?
 * 
 ###back-end
-* socket
-* nginx
+* [socket](/back_end/socket.md)
+* [nginx](/back_end/nginx.md)
 * 최적의 서버 구성도
 * 채팅에서의 세션 유지 방법은?
+* [http status code](/back_end/http%20status%20code.md)
 
 ###php
 
@@ -154,11 +155,10 @@ function Person(){} var person = Person() var person = new Person()
 * 공통 컴파일러 최적화화
 * 어플리케이션 내부 단편화
 * 실행시 메모리 구성
-* 변수
-* 동적변수
-* 활성테이블과 함수 스택
-* 지역 / 전역 변수 차이
-* 동적변수
+* [변수](/hardware/변수.md)
+* [활성테이블과 함수 스택](/hardware/활성테이블과%20함수%20스택.md)
+* [지역 / 전역 변수 차이](/hardware/%20지역%20전역%20변수%20차이.md)
+* [동적변수](/hardware/동적변수.md)
 * [레지스터변수](/hardware/레지스터변수.md)
 * [메모리에서 변수 표현](/hardware/메모리에서%20변수%20표현.md)
 * [다차원 배열의 원소 접근](/hardware/다차원%20배열의%20원소%20접근.md)

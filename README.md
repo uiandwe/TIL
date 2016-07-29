@@ -95,10 +95,10 @@ function Person(){} var person = Person() var person = new Person()
 * 채팅에서의 세션 유지 방법은?
 * [http status code](/back_end/http%20status%20code.md)
 * [db 테이블에 pk가 두개 이상인 경우](/back_end/db%20pk가%20두개%20있는%20경우.md)
-* db 엔진
-* Auto_Increment를 맹신하지 말자
-* pk가 int가 아닌 경우
-* 
+* [db 엔진](/back_end/db엔진.md)
+* [Auto_Increment를 맹신하지 말자](/back_end/innodb의%20%20auto%20increment%20는%20맹신하지%20말자.md)
+* [pk가 int가 아닌 경우](/back_end/pk가%20int가%20아닌%20경우.md)
+* [db 인덱스 트리 ](/back_end/db%20인덱스%20트리.md)
 
 ###php
 

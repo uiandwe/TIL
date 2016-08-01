@@ -99,6 +99,8 @@ function Person(){} var person = Person() var person = new Person()
 * [Auto_Increment를 맹신하지 말자](/back_end/innodb의%20%20auto%20increment%20는%20맹신하지%20말자.md)
 * [pk가 int가 아닌 경우](/back_end/pk가%20int가%20아닌%20경우.md)
 * [db 인덱스 트리 ](/back_end/db%20인덱스%20트리.md)
+* [포워드 프록시와 리버스 프록시](/back_end/포워드%20프록시와%20리버스%20프록시.md)
+* [배포자동화](/back_end/배포자동화.md)
 
 ###php
 

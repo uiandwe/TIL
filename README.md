@@ -35,6 +35,7 @@ Today I Learned
 * [CSS 전처리(CSS preprocessors)를 사용해보셨나요?](/CSS/CSS%20전처리%20CSS%20preprocessors를%20사용해보셨나요.md)
 * 페이지에서 표준 폰트가 아닌 폰트 디자인을 사용할 때 어떤 방식으로 처리하시나요?(웹폰트를 제외하고)
 * [CSS Selector가 어떠한 원리로 동작하는지 설명하시오.](/CSS/CSS%20Selector가%20어떠한%20원리로%20동작하는지%20설명하시오.md)
+* [복합 선택자와 키 선택자](/CSS/복합%20선택자와%20키%20선택자.md)
 
 
 

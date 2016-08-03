@@ -129,7 +129,7 @@ function Person(){} var person = Person() var person = new Person()
 * 점진적 향상법(progressive enhancement)과 우아한 성능저하법(graceful degradation)의 차이를 설명하실 수 있습니까?
 	* "누구도 성공하지 못합니다" 라고 말하면 보너스 포인트를 주세요.
 	* 각 특색을 설명을 한다면, 더 높은 보너스 포인트를 주세요.
-* "시멘틱 HTML(Semantic HTML)"이 무엇을 뜻하는지 설명해주세요.
+* [시멘틱 HTML Semantic HTML이 무엇을 뜻하는지 설명해주세요.](/q%26a/시멘틱%20HTML%20Semantic%20HTML이%20무엇을%20뜻하는지%20설명해주세요.md)
 * "최소화(minification)"가 무엇을 하는 것입니까?
 * 여러 도메인을 이용하여 서버 사이트 데이터를 제공하는 것이 더 나은 이유는 무엇인가요?
 	* [브라우저가 한 번에 1개의 도메인에서 다운로드 받는 리소스는 몇 개 인가요?](/default/브라우저가%20한%20번에%201개의%20도메인에서%20다운로드%20받는%20리소스는%20몇%20개%20인가요%3F)
@@ -162,7 +162,7 @@ function Person(){} var person = Person() var person = new Person()
 * 컴파일러 최적화 과정
 * 공통 컴파일러 최적화화
 * 어플리케이션 내부 단편화
-* 실행시 메모리 구성
+* [실행시 메모리 구성](/hardware/실행시%20메모리%20구성.md)
 * [변수](/hardware/변수.md)
 * [활성테이블과 함수 스택](/hardware/활성테이블과%20함수%20스택.md)
 * [지역 / 전역 변수 차이](/hardware/%20지역%20전역%20변수%20차이.md)

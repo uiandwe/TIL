@@ -92,7 +92,7 @@ function Person(){} var person = Person() var person = new Person()
 * [socket](/back_end/socket.md)
 * [nginx](/back_end/nginx.md)
 * [최적의 서버 구성도](/back_end/최적의%20서버%20구성도.md)
-* 채팅에서의 세션 유지 방법은?
+* [채팅에서의 세션 유지 방법은?](/back_end/채팅에서의%20세션%20유지%20방법은%3F.md)
 * [http status code](/back_end/http%20status%20code.md)
 * [db 테이블에 pk가 두개 이상인 경우](/back_end/db%20pk가%20두개%20있는%20경우.md)
 * [db 엔진](/back_end/db엔진.md)

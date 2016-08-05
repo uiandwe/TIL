@@ -160,7 +160,7 @@ function Person(){} var person = Person() var person = new Person()
 * [컴파일러 번역과정](/hardware/컴파일러%20번역과정.md)
 * [컴파일러 파싱](/hardware/컴파일러%20파싱.md)
 * [컴파일러 최적화 과정](/hardware/컴파일러%20최적화%20과정.md)
-* 공통 컴파일러 최적화화
+* [공통 컴파일러 최적화화](/hardware/공통%20컴파일러%20최적화화.md)
 * 어플리케이션 내부 단편화
 * [실행시 메모리 구성](/hardware/실행시%20메모리%20구성.md)
 * [변수](/hardware/변수.md)

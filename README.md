@@ -161,7 +161,7 @@ function Person(){} var person = Person() var person = new Person()
 * [컴파일러 파싱](/hardware/컴파일러%20파싱.md)
 * [컴파일러 최적화 과정](/hardware/컴파일러%20최적화%20과정.md)
 * [공통 컴파일러 최적화화](/hardware/공통%20컴파일러%20최적화화.md)
-* 어플리케이션 내부 단편화
+* [어플리케이션 내부 단편화](/hardware/어플리케이션%20내부%20단편화.md)
 * [실행시 메모리 구성](/hardware/실행시%20메모리%20구성.md)
 * [변수](/hardware/변수.md)
 * [활성테이블과 함수 스택](/hardware/활성테이블과%20함수%20스택.md)

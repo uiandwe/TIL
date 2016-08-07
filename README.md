@@ -70,7 +70,7 @@ function Person(){} var person = Person() var person = new Person()
 * 기존에 Javascript 템플릿을 사용한 적이 있나요? 만약에 있다면, 어떠한 방식으로 사용했는지 말씀해주세요.
 * ["호이스팅(Hoisting)"에 대해서 설명 하시오.](JS/"호이스팅(Hoisting)"에%20대해서%20설명%20하시오.md)
 * [FOUC가 무엇이며 FOUC를 어떻게 방지하나요?](/JS/FOUC가%20무엇이며%20FOUC를%20어떻게%20방지하나요.md)
-* 이벤트 버블링(Event Bubbling)에 대해서 설명하세요.
+* [이벤트 버블링(Event Bubbling)에 대해서 설명하세요.](/JS/이벤트%20버블링(Event%20Bubbling)에%20대해서%20설명하세요.md)
 * "속성(Attribute)"와 "요소(property)"의 차이가 무엇인가요?
 * Javascript 객체를 확장하는 것이 좋지 않은 이유는 무엇인가요?
 * [Document Load 이벤트와 Ready 이벤트의 차이가 무엇인가요?](/JS/Document%20Load%20이벤트와%20Ready%20이벤트의%20차이가%20무엇인가요%3F.md)

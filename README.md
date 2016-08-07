@@ -104,7 +104,7 @@ function Person(){} var person = Person() var person = new Person()
 
 ###php
 
-* php 기본 구조
+* [php 기본 구조](/back_end/php/php%20기본%20구조.md)
 * zend
 * php의 가비지 컬렉션
 * php 버전별 서능 비교

@@ -14,6 +14,7 @@ Today I Learned
 * HTML5를 오픈웹플랫폼(open web platform)으로 생각해본다면, 어떤 것들로 구성돼 있을까요?
 * [쿠키(Cookies)와 세션저장소(sessionStorage)와 로컬저장소(localStorage)의 차이점을 설명해주세요](/HTML/쿠키(Cookies)와%20세션저장소(sessionStorage)와%20로컬저장소(localStorage)의%20차이점을%20설명해주세요.)
 * [알기 쉬운 콘텐츠 요소 판별](/HTML/알기%20쉬운%20콘텐츠%20요소%20판별법.md)
+* [input form](/HTML/html%20input%20form.md)
 
 ## CSS 관련 질문들:
 

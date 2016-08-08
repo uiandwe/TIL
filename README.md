@@ -112,9 +112,10 @@ function Person(){} var person = Person() var person = new Person()
 * include와 require의 차이점
 * 네임스페이스
 * phalcon vs laravel vs CI
-* python
+
+###python
 * python 가비지 컬렉션
-* 
+* [uwsgi를 쓰는 이유](/back_end/python/django/uwsgi를%20쓰는%20이유.md)
 
 ## 일반적인 질문:
 

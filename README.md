@@ -117,6 +117,7 @@ function Person(){} var person = Person() var person = new Person()
 * python 가비지 컬렉션
 * [uwsgi를 쓰는 이유](/back_end/python/django/uwsgi를%20쓰는%20이유.md)
 * [Python WSGI server.md](/back_end/python/Python%20WSGI%20server.md)
+* [memoization](/back_end/python/memoization.md)
 
 ## 일반적인 질문:
 

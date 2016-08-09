@@ -51,7 +51,7 @@ Today I Learned
 * "Javascript 모듈 패턴(Javascript module pattern)"이 무엇인지 설명을 해주시고, 언제 사용하는지도 말씀해주시기 바랍니다.
 	* "네임스페이스(namespacing)"에 대해서 언급을 하면, 보너스 포인트가 있습니다.
 	* 당신의 모듈이 네임스페이스가 없는 상황이라면?
-* 당신의 코드를 어떻게 구성하는지?(모듈 패턴, Class기반 상속?)
+* 당신의 코드를 어떻게 구성하는지?([모듈 패턴](/JS/js%20모듈%20패턴.md), Class기반 상속?)
 * [호스트 객체(Host Objects)와 네이티브 객체(Native Objects)의 차이점은 무엇인가요?](/JS/호스트%20객체%20Host%20Objects와%20네이티브%20객체Native%20Objects의%20차이점은%20무엇인가요%3F.md)
 * [다음 코드의 차이점은 무엇인가요?](/JS/다음%20코드의%20차이점은%20무엇인가요%3F.md)
 ```javascript

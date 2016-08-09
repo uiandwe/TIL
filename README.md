@@ -45,7 +45,7 @@ Today I Learned
 * 사용해 본 Javascript 라이브러리들을 말씀해주세요.
 * Java와 Javascript의 다른 점은 무엇인가요?
 * [`undefined`와 `undeclared` 변수는 무엇인가요?](/JS/undefined와%20undeclared%20변수는%20무엇인가요%3F.md)
-* 클로져(Closure)는 무엇이며, 어떻게/왜 사용하는지 설명해주세요.
+* [클로져(Closure)는 무엇이며, 어떻게/왜 사용하는지 설명해주세요.](/JS/클로져%20Closure.md)
 	* 클로져를 만들 때 선호하는 패턴은 무엇인가요? argyle (IIFEs에만 적용할 수 있다)
 * 익명함수(anonymous functions)는 주로 어떤 상황에서 사용하나요?
 * "Javascript 모듈 패턴(Javascript module pattern)"이 무엇인지 설명을 해주시고, 언제 사용하는지도 말씀해주시기 바랍니다.

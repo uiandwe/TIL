@@ -105,6 +105,10 @@ function Person(){} var person = Person() var person = new Person()
 * [포워드 프록시와 리버스 프록시](/back_end/포워드%20프록시와%20리버스%20프록시.md)
 * [배포자동화](/back_end/배포자동화.md)
 * [서버구축시 읽어보기](/back_end/서버%20구축시%20읽어보기.md)
+* [mysql 제약들](/back_end/mysql/여러%20제약들.md)
+* 
+
+
 
 ###php
 

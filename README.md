@@ -57,7 +57,7 @@ Today I Learned
 ```javascript
 function Person(){} var person = Person() var person = new Person()
 ```
-* `.call`과 `.apply`의 차이점은 무엇인가요?
+* [call과 apply의 차이점은 무엇인가요?](/JS/call과%20apply의%20차이점은%20무엇인가요%3F.md)
 * `Function.prototype.bind`을 설명 하시오
 * 코드 최적화를 하는 시점은 언제인가요?
 * Javascript에서 어떻게 상속을 하는지 설명할 수 있나요?

@@ -85,7 +85,7 @@ function Person(){} var person = Person() var person = new Person()
 ```javascript
 [1,2,3,4,5].duplicator(); // [1,2,3,4,5,1,2,3,4,5]
 ```
-* Javascript에서 메모이제이션(memoization, 중복 계산 방지)에 대한 전략을 설명해주세요.
+* [Javascript에서 메모이제이션(memoization, 중복 계산 방지)에 대한 전략을 설명해주세요.](/master/JS/메모이제이션.md)
 * 삼항식(Ternary statement)을 사용하는 이유는 무엇이고, 그것을 표현하기 위한 연산자 단어는 무엇인가요?
 * arity는 어떠한 함수인가요?
 * [주요 스크립트 라이브러리](/JS/주요%20스크립트%20라이브러리.md)

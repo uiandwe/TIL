@@ -110,6 +110,7 @@ function Person(){} var person = Person() var person = new Person()
 * [Timsort](/back_end/python/Timsort.md)
 * [https](/back_end/https.md)
 * [공개키암호화](/back_end/공개키%20암호화.md)
+* [django/장고 개발 철학](django/장고%20개발%20철학.md)
 
 
 

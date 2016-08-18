@@ -112,8 +112,10 @@ function Person(){} var person = Person() var person = new Person()
 * [웹브라우저 연결의 기본적인 절차](/back_end/웹브라우저%20연결의%20기본적인%20절차.md)
 * [https](/back_end/https.md)
 * [공개키암호화](/back_end/공개키%20암호화.md)
+* [진짜 웹서버가 하는일](/back_end/진짜%20웹서버가%20하는일.md)
 * [django/장고 개발 철학](django/장고%20개발%20철학.md)
 * [django/import *는 피하자](/back_end/python/django/import%20*는%20피하자.md)
+* 
 
 
 

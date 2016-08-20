@@ -115,6 +115,7 @@ function Person(){} var person = Person() var person = new Person()
 * [진짜 웹서버가 하는일](/back_end/진짜%20웹서버가%20하는일.md)
 * [프락시](/back_end/프락시.md)
 * [게이트웨이](/back_end/게이트웨이.md)
+* [브라우저 기본 구조](/back_end/브라우저%20기본%20구조.md)
 * [django/장고 개발 철학](django/장고%20개발%20철학.md)
 * [django/import *는 피하자](/back_end/python/django/import%20*는%20피하자.md)
 * 

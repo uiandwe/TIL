@@ -116,16 +116,15 @@ function Person(){} var person = Person() var person = new Person()
 * [프락시](/back_end/프락시.md)
 * [게이트웨이](/back_end/게이트웨이.md)
 * [브라우저 기본 구조](/back_end/브라우저%20기본%20구조.md)
-* [django/장고 개발 철학](django/장고%20개발%20철학.md)
-* [django/import *는 피하자](/back_end/python/django/import%20*는%20피하자.md)
-* 
+
+
 
 
 
 ###php
 
 * [php 기본 구조](/back_end/php/php%20기본%20구조.md)
-* zend
+* [php zend 엔진](/back_end/php/zend%20엔진.md)
 * php의 가비지 컬렉션
 * php 버전별 서능 비교
 * php 문제점
@@ -139,6 +138,9 @@ function Person(){} var person = Person() var person = new Person()
 * [Python WSGI server.md](/back_end/python/Python%20WSGI%20server.md)
 * [memoization](/back_end/python/memoization.md)
 * [list comprehensions이 더 빠른 이유](/back_end/python/list%20comprehensions이%20더%20빠른%20이유.md)
+* [django/장고 개발 철학](django/장고%20개발%20철학.md)
+* [django/import *는 피하자](/back_end/python/django/import%20*는%20피하자.md)
+* 
 
 ## 일반적인 질문:
 

@@ -130,7 +130,7 @@ function Person(){} var person = Person() var person = new Person()
 * php 문제점
 * include와 require의 차이점
 * 네임스페이스
-* phalcon vs laravel vs CI
+* [phalcon vs laravel vs CI](/back_end/php/CI%20vs%20laravel%20cs%20phalcon.md)
 
 ###python
 * python 가비지 컬렉션

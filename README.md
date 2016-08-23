@@ -232,6 +232,6 @@ function Person(){} var person = Person() var person = new Person()
 * 웹브라우저 작동 방식
 * string ' or "
 * [물어볼 질문들](/q&a/물어볼%20질문들.md)
-* 
+* [디더링](/q%26a/디더링.md)
 * 
 * 

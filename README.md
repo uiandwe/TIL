@@ -17,6 +17,7 @@ Today I Learned
 * [적합한 시멘틱 요소가 없을경우](/HTML/적합한 시멘틱 요소가 없을경우.md)
 * [input form](/HTML/html%20input%20form.md)
 * [<i> vs <em>](/HTML/<i> vs <em>.md)
+* [<em>, <strong>, <dfn>, <code>, <samp>, <kbd>, <var>](/HTML/<em>, <strong>, <dfn>, <code>, <samp>, <kbd>, <var> 태그.md)
 
 ## CSS 관련 질문들:
 

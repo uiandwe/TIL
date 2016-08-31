@@ -18,6 +18,7 @@ Today I Learned
 * [input form](/HTML/html%20input%20form.md)
 * [< i > vs < em >](/HTML/<i> vs <em>.md)
 * [< em >, < strong >, < dfn >, < code >, < samp >, < kbd >, < var >](/HTML/<em>, <strong>, <dfn>, <code>, <samp>, <kbd>, <var> 태그.md)
+* [Emphasis vs Strong](/HTML/Emphasis vs Strong.md)
 
 ## CSS 관련 질문들:
 

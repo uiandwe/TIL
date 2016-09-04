@@ -121,6 +121,7 @@ function Person(){} var person = Person() var person = new Person()
 * [프락시](/back_end/프락시.md)
 * [게이트웨이](/back_end/게이트웨이.md)
 * [브라우저 기본 구조](/back_end/브라우저%20기본%20구조.md)
+* [엔터티 범위 요청](/back_end/엔터티 범위 요청.md)
 
 
 

@@ -123,6 +123,10 @@ function Person(){} var person = Person() var person = new Person()
 * [브라우저 기본 구조](/back_end/브라우저%20기본%20구조.md)
 * [엔터티 범위 요청](/back_end/엔터티 범위 요청.md)
 * [리다이렉트](/back_end/리다이렉트.md)
+* mysql order by에서의 성능 개선
+* 대규모 사이트의 서버 구성(전자 상거래 소비스 구조)
+* 각 언어별 가비지 컬렉션
+* 동기와 비동기
 
 
 

@@ -47,7 +47,7 @@ Today I Learned
 
 ## Javascript에 관련된 질문들:
 
-* 사용해 본 Javascript 라이브러리들을 말씀해주세요.
+
 * Java와 Javascript의 다른 점은 무엇인가요?
 * [`undefined`와 `undeclared` 변수는 무엇인가요?](/JS/undefined와%20undeclared%20변수는%20무엇인가요%3F.md)
 * [클로져(Closure)는 무엇이며, 어떻게/왜 사용하는지 설명해주세요.](/JS/클로져%20Closure.md)

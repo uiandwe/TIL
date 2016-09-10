@@ -126,7 +126,7 @@ function Person(){} var person = Person() var person = new Person()
 * mysql order by에서의 성능 개선
 * 대규모 사이트의 서버 구성(전자 상거래 소비스 구조)
 * 각 언어별 가비지 컬렉션
-* 동기와 비동기
+* [동기와 비동기](/back_end/%EB%8F%99%EA%B8%B0%20%EB%B9%84%EB%8F%99%EA%B8%B0.md)
 
 
 

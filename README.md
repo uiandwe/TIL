@@ -20,6 +20,7 @@ Today I Learned
 * [< em >, < strong >, < dfn >, < code >, < samp >, < kbd >, < var >](/HTML/<em>, <strong>, <dfn>, <code>, <samp>, <kbd>, <var> 태그.md)
 * [Emphasis vs Strong](/HTML/Emphasis vs Strong.md)
 * [이탤릭체인 태그](/HTML/이탤릭체인 태그.md)
+* 
 
 ## CSS 관련 질문들:
 
@@ -42,6 +43,7 @@ Today I Learned
 * 페이지에서 표준 폰트가 아닌 폰트 디자인을 사용할 때 어떤 방식으로 처리하시나요?(웹폰트를 제외하고)
 * [CSS Selector가 어떠한 원리로 동작하는지 설명하시오.](/CSS/CSS%20Selector가%20어떠한%20원리로%20동작하는지%20설명하시오.md)
 * [IE7에서 :before, :after 선택자와 content 속성 대체방안.md](/CSS/IE7에서%20:before%2C%20:after%20선택자와%20content%20속성%20대체방안.md)
+* [전처리도구의 장단저ㅁ](/CSS/전처리도구의 장단점.md)
 
 
 

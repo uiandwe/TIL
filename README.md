@@ -140,7 +140,7 @@ function Person(){} var person = Person() var person = new Person()
 
 * [php 기본 구조](/back_end/php/php%20기본%20구조.md)
 * [php zend 엔진](/back_end/php/zend%20엔진.md)
-* php의 가비지 컬렉션
+* [php의 가비지 컬렉션](/back_end/php/php의_가비지_컬렉션.md)
 * php 버전별 서능 비교
 * php 문제점
 * include와 require의 차이점

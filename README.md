@@ -221,7 +221,6 @@ function Person(){} var person = Person() var person = new Person()
 * [함수와 프로시저 호출](/hardware/함수와%20프로시저%20호출.md)
 * [반환 주소 저장](/hardware/반환%20주소%20저장.md)
 * [전역변수 사용시 주의할 점](/hardware/전역변수%20사용시%20주의할%20점.md) 
-* 
 
 
 ### Q&A
@@ -247,5 +246,3 @@ function Person(){} var person = Person() var person = new Person()
 * string ' or "
 * [물어볼 질문들](/q&a/물어볼%20질문들.md)
 * [디더링](/q%26a/디더링.md)
-* 
-* 

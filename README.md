@@ -168,6 +168,8 @@ function Person(){} var person = Person() var person = new Person()
 
 ## 일반적인 질문:
 
+
+
 * Twitter,Facebook 혹은 Me2day등의 SNS를 사용하시나요?
 	* 사용한다면, 누구를 팔로우 하고 있나요?
 * GitHub을 사용하시나요?

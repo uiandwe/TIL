@@ -1,5 +1,10 @@
 
 
+https://blog.naver.com/parkjy76/221262903257
+- mysql 8.* 부터 오름차순 인덱스 공식 지원됨 
+
+
+
 mysql에서는 order by에서의 desc(오름차순)은 인덱스가 지원하지 않는다. 
 
 즉 order by desc를 할 경우 select된 데이터 들이 다시 sorting되므로 오버헤드가 발생한다. 

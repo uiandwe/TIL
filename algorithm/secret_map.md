@@ -31,3 +31,93 @@ arr1, arr2는 길이 n인 정수 배열로 주어진다.
 ## 입출력 예제
 
 ![Alt text](/img/secret_map_2.png)
+
+
+
+
+
+```
+var n = 5;
+var arr1 = [9, 20, 28, 18, 11];
+var arr2 = [30, 1, 21, 17, 28];
+
+
+
+function intToBinary(int){
+    return int.toString(2);
+}
+
+function fillZero(str){
+    if(str.length == n){
+        return str;
+    }
+    else{
+        var strRevers = str.split("").reverse();
+        var len = strRevers.length;
+        for(var i=0; i<n-len; i++){
+            strRevers.push("0");
+        }
+        return strRevers.reverse().join("");
+    }
+}
+
+
+function mergeBinary(int1, int2){
+    var b1 = fillZero(intToBinary(int1));
+    var b2 = fillZero(intToBinary(int2));
+
+    var returnBinary = [];
+    for(var i=0; i<b1.length; i++){
+        if(b1[i] | b2[i]){
+            returnBinary.push(1);
+        }
+        else{
+            returnBinary.push(0);
+        }
+    }
+    
+    return returnBinary.join("");
+}
+
+
+function binaryToChar(binary){
+    var str = "";
+    for(var i=0; i<binary.length; i++){
+        if(binary[i] == '0'){
+            str += " ";
+        }
+        else{
+            str += "#";
+        }
+    }
+    return str;
+}
+
+
+function mergeArray(arr1, arr2){
+    var returnArray = [];
+    for(var i=0; i<arr1.length; i++){
+        returnArray.push(mergeBinary(arr1[i], arr2[i]));
+    }
+
+    for(var i=0; i<returnArray.length; i++){
+        console.log(binaryToChar(returnArray[i]));
+    }
+}
+
+
+mergeArray(arr1, arr2);
+
+
+```
+
+## 결과 
+```
+
+#####
+# # #
+### #
+#  ##
+#####
+
+```

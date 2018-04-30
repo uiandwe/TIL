@@ -51,8 +51,65 @@
 
 ```
 
-var pattern = /[0-9]+[SDT]+[*#]?/ig;
+
+function setSquare(int, scoreSquare){
+    if(scoreSquare == 'D'){
+        return Math.pow(int, 2);
+    }
+    else if(scoreSquare == 'T'){
+        return Math.pow(int, 3);
+    }
+    return int;
+}
+
+
+function getGameScore(formula){
+    var digit = /10|[0-9]/g;
+    var square = /[SDT]/g;
+    var bonse = /[*#]/g;
+    var scoreArray = [];
+ 
+    for(var i=0; i<formula.length; i++){
+        var score = formula[i].match(digit);
+        var scoreSquare = formula[i].match(square)[0];
+        var scoreBonse = formula[i].match(bonse);
+
+        scoreArray.push(parseInt(score));
+
+        scoreArray[i] = setSquare(scoreArray[i], scoreSquare);
+
+        if(scoreBonse != null){
+            if(scoreBonse == '*'){
+                scoreArray[i] *= 2;
+                if(i != 0){
+                    scoreArray[i-1] *= 2;
+                }
+            }
+            else if(scoreBonse == '#'){
+                scoreArray[i] *= -1;
+            }
+        }
+    }
+
+    return scoreArray.reduce(function(acc, val) { return acc + val; });
+}
+
+
+function getArrayGameFormula(str){
+    var pattern = /[0-9]+[SDT]+[*#]?/ig;
+    return str.match(pattern);
+}
+
 var str = "1S2D*3T";
-str.match(pattern);
+var str = "1D2S#10S";
+var str = "1D2S0T";
+var str = "1S*2T*3S";
+var str = "1D#2S*3S";
+var str = "1T2D3D#";
+var str = "1D2S3T*";
+
+var gameFormula = getArrayGameFormula(str);
+console.log(getGameScore(gameFormula));
+
 
 ```

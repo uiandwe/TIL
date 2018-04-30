@@ -46,3 +46,13 @@
 ## 입출력 예제
 
 ![Alt text](/img/dart.png)
+
+
+
+```
+
+var pattern = /[0-9]+[SDT]+[*#]?/ig;
+var str = "1S2D*3T";
+str.match(pattern);
+
+```

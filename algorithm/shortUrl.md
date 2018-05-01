@@ -2,6 +2,7 @@
 // 62진수 0~Z 까지를 사용함 (md5암호화는 복수개가 생길수 있음 / sha 암호화는 너무 김)
 // 진수 계산으로 처음부터 생성
 
+```
 var startNumber = 1000;
 var numberFormat62String = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -29,3 +30,4 @@ console.log(numberFormat62());
 console.log(numberFormat62());
 console.log(numberFormat62());
 console.log(numberFormat62());
+```

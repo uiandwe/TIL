@@ -32,7 +32,7 @@
 ```
 캐시크기(cacheSize) 	도시이름(cities) 	실행시간
 
-3 	[“Jeju”, “Pangyo”, “Seoul”, “NewYork”, “LA”, “Jeju”, “Pangyo”, “Seoul”, “NewYork”, “LA”] 	50
+3 	["Jeju", "Pangyo", "Seoul", "NewYork", "LA", "Jeju", "Pangyo", "Seoul", "NewYork", "LA"] 	50
 3 	[“Jeju”, “Pangyo”, “Seoul”, “Jeju”, “Pangyo”, “Seoul”, “Jeju”, “Pangyo”, “Seoul”] 	21
 2 	[“Jeju”, “Pangyo”, “Seoul”, “NewYork”, “LA”, “SanFrancisco”, “Seoul”, “Rome”, “Paris”, “Jeju”, “NewYork”, “Rome”] 	60
 5 	[“Jeju”, “Pangyo”, “Seoul”, “NewYork”, “LA”, “SanFrancisco”, “Seoul”, “Rome”, “Paris”, “Jeju”, “NewYork”, “Rome”] 	52
@@ -42,5 +42,79 @@
 
 
 ```
+
+// var bufferSize = 3;
+// var locationArray = ["Jeju", "Pangyo", "Seoul", "NewYork", "LA", "Jeju", "Pangyo", "Seoul", "NewYork", "LA"];
+// var locationArray = ["Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul"];
+// var bufferSize = 2;
+// var locationArray = ["Jeju", "Pangyo", "Seoul", "NewYork", "LA", "SanFrancisco", "Seoul", "Rome", "Paris", "Jeju", "NewYork", "Rome"]
+var bufferSize = 5;
+var locationArray = ["Jeju", "Pangyo", "Seoul", "NewYork", "LA", "SanFrancisco", "Seoul", "Rome", "Paris", "Jeju", "NewYork", "Rome"];
+// var bufferSize = 2;
+// var locationArray = ["Jeju", "Pangyo", "NewYork", "newyork"];
+// var bufferSize = 0;
+// var locationArray = ["Jeju", "Pangyo", "Seoul", "NewYork", "LA"]
+
+var chcheHit = 1;
+var chcheMiss = 5;
+
+var bufferArray = [];
+var point = 0;
+var time = 0;
+
+
+function getBufferArrayByStr(location){
+    for(var i=0; i<bufferArray.length; i++){
+        if(bufferArray[i].toLowerCase() == location.toLowerCase()){
+            return i;
+            break;
+        }
+    }
+    
+    return -1;
+}
+
+
+function lru(location){
+    var index = getBufferArrayByStr(location);
+
+    if(index == -1){ //버퍼에 없음, 가장 오래된 아이템과 교체 
+        bufferArray[point] = location;
+        
+        point += 1;
+        if(point >= bufferSize){
+            point = 0;
+        }
+
+        time += chcheMiss;
+        
+    }
+    else{ //버퍼에 있음
+        time += chcheHit;
+    }
+}
+
+
+function init(){
+    for(var i=0; i<bufferSize; i++){
+        bufferArray.push("");
+    }
+}
+
+function runLRU(){
+    
+    init();
+
+    for(var i=0; i<locationArray.length; i++){
+        lru(locationArray[i]);
+    }
+
+    console.log("time", time);
+}
+
+
+runLRU();
+
+
 
 ```

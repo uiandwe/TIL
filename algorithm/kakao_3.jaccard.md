@@ -58,3 +58,77 @@ handshake   shake hands   65536
 aa1+aa2     AAAA12        43690
 E=M*C^2     e=m*c^2       65536
 ```
+
+
+
+```
+
+
+var str1 = "FRANCE";
+var str2 = "french";
+
+var str1 = "handshake";
+var str2 = "shake hands";
+
+var str1 = "aa1+aa2";     
+var str2 = "AAAA12";
+
+
+var str1 = "E=M*C^2";
+var str2 = "e=m*c^2";
+
+var re = new RegExp("[A-z]{2}", "ig");
+
+function getCharAtom(str){
+    var strArray = [];
+    for(var i=0; i<str.length; i++){
+        var substring = str.substr(i, 2);
+        
+        if(substring.match(re)){
+            strArray.push(substring)
+        }
+    }
+    return strArray;
+}
+
+
+function smallLetter(array){
+    var sorted = [];
+    for (var i = 0; i < array.length; i++) {
+        sorted.push(array[i].toLowerCase());
+    }
+    return sorted.sort();
+}
+
+function include(arr,obj) {
+    return (arr.indexOf(obj) != -1);
+}
+
+function getIntersectionSets(array1, array2){
+    var includeCount = 0;
+    for(var i=0; i<array1.length; i++){
+        if(include(array2, array1[i]) == true){
+            includeCount++;
+        }
+    }
+
+    return includeCount;
+}
+
+function run(){
+    var array1 = smallLetter(getCharAtom(str1));
+    var array2 = smallLetter(getCharAtom(str2));
+
+    var countInterSectionSets = getIntersectionSets(array1, array2); //교집합 갯수
+
+    var countSumOfSets = array1.length + array2.length - countInterSectionSets; // 합집합 갯수
+
+    var answer = 65536;
+
+    console.log(answer * ( countInterSectionSets / countSumOfSets) )
+
+}
+
+run();
+
+```

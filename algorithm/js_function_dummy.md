@@ -1,3 +1,4 @@
+### 범위 array 구하기 
 ```
 
 function range(start, end){
@@ -31,3 +32,11 @@ ex ) console.log(range(1, 10));
      -1
      
 ```
+
+### 문자열 뒤집기
+```
+function reverseString(str){
+    return str.split("").reverse().join("");
+}
+```
+

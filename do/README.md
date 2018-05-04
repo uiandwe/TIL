@@ -2,6 +2,9 @@
 - 좋은 기술 인터뷰 질문은 어떤 질문인가?
   http://blog.kivol.net/post/173442457743/%EC%A2%8B%EC%9D%80-%EA%B8%B0%EC%88%A0-%EC%9D%B8%ED%84%B0%EB%B7%B0-%EC%A7%88%EB%AC%B8%EC%9D%80-%EC%96%B4%EB%96%A4-%EC%A7%88%EB%AC%B8%EC%9D%B8%EA%B0%80
 
+- 개발 채용시 기술 검증 
+https://okky.kr/article/456499
+
 1. RUST api 
 http://slides.com/eungjun/rest#/
 

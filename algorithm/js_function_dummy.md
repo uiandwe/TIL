@@ -111,3 +111,24 @@ console.log(numberCases(['a', 'b', 'c']));
 
 
 ```
+
+
+### 문자열에서 index 의 문자 수정 
+
+```
+
+String.prototype.replaceAt=function(index, character) {
+    return this.substr(0, index) + character + this.substr(index+character.length);
+}
+var str = "test";
+
+console.log(str.replaceAt(1, 'Z'));
+console.log(str);
+
+tZst
+test
+
+```
+
+
+

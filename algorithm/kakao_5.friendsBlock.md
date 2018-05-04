@@ -51,3 +51,64 @@ m 	n 	board 	answer
 ```
 
 
+```
+
+var array = ["CCBDE", "AAADE", "AAABF", "CCBBF"];
+var m = 5;
+var n = 4;
+var copyBlockArray = [];
+
+function copyArray(){
+    for(var i=0; i<array.length; i++){
+        copyBlockArray.push(JSON.parse(JSON.stringify(array[i])))
+    }
+}
+
+
+function moveCheck(x, y){
+    console.log(x, y);
+    copyBlockArray[x][y] = 0; 
+    copyBlockArray[x+1][y] = 0;
+    copyBlockArray[x][y+1] = 0;  
+    copyBlockArray[x+1][y+1] = 0;
+    console.log(copyBlockArray)
+}
+
+function block(x, y){
+    if(x+1 < n && y+1 < m){
+        if(array[x][y] && array[x+1][y] && array[x][y+1] && array[x+1][y+1]){
+            if(array[x][y] == array[x+1][y] &&  array[x+1][y] == array[x][y+1] && array[x][y+1] == array[x+1][y+1]){
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+function detact(){
+    for(var i=0; i<n; i++){
+        for(var j=0; j<m; j++){
+            if(block(i, j) == true){
+                moveCheck(i, j);
+            }
+        }
+    }
+}
+
+function draw(blockArray){
+    for(var i=0; i<n; i++){
+        console.log(blockArray[i]);
+    }
+}
+
+function run(){
+    copyArray();
+    draw(array);
+    detact();
+    console.log("-------")
+    draw(copyBlockArray);
+}
+
+run();
+
+```

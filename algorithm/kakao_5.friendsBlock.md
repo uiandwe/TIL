@@ -54,31 +54,77 @@ m 	n 	board 	answer
 ```
 
 var array = ["CCBDE", "AAADE", "AAABF", "CCBBF"];
-var m = 5;
 var n = 4;
-var copyBlockArray = [];
+var m = 5;
 
-function copyArray(){
-    for(var i=0; i<array.length; i++){
-        copyBlockArray.push(JSON.parse(JSON.stringify(array[i])))
+var array = ["TTTANT", "RRFACC", "RRRFCC", "TRRRAA", "TTMMMF", "TMMTTJ"];
+var n = 5;
+var m = 6;
+
+
+var copyBlockArray = [];
+var detactChange = false;
+
+
+String.prototype.replaceAt=function(index, character) {
+    return this.substr(0, index) + character + this.substr(index+character.length);
+}
+
+
+function getTotalPoint(pointArray){
+    var totalPoint = 0;
+    for(var i=0; i<n; i++){
+        for(var j=0; j<m; j++){
+            if(pointArray[i][j] == '0'){
+                totalPoint++;
+            }
+        }
+    }
+    return totalPoint;
+}
+
+
+function moveBottom(moveArray){
+    for(var j=0; j<m; j++){
+        var point = -1;
+        for(var i=n-1; i>=0; i--){
+            if(moveArray[i][j] == '0' && point == -1){
+                point = i;
+            }
+            else if(point >= 0 && moveArray[i][j] != '0'){
+                var moveChart = moveArray[i][j];
+                moveArray[point] = moveArray[point].replaceAt(j, moveChart);
+                moveArray[i] = moveArray[i].replaceAt(j, '0');
+                point--;
+            }
+        }
     }
 }
 
 
+function copyArray(exportArray){
+    var returnArray = []
+    for(var i=0; i<exportArray.length; i++){
+        returnArray.push(JSON.parse(JSON.stringify(exportArray[i])))
+    }
+    return returnArray;
+}
+
+
 function moveCheck(x, y){
-    console.log(x, y);
-    copyBlockArray[x][y] = 0; 
-    copyBlockArray[x+1][y] = 0;
-    copyBlockArray[x][y+1] = 0;  
-    copyBlockArray[x+1][y+1] = 0;
-    console.log(copyBlockArray)
+    copyBlockArray[x] = copyBlockArray[x].replaceAt(y, '0');
+    copyBlockArray[x+1] = copyBlockArray[x+1].replaceAt(y, '0');
+    copyBlockArray[x] = copyBlockArray[x].replaceAt(y+1, '0');
+    copyBlockArray[x+1] = copyBlockArray[x+1].replaceAt(y+1, '0');
 }
 
 function block(x, y){
     if(x+1 < n && y+1 < m){
-        if(array[x][y] && array[x+1][y] && array[x][y+1] && array[x+1][y+1]){
-            if(array[x][y] == array[x+1][y] &&  array[x+1][y] == array[x][y+1] && array[x][y+1] == array[x+1][y+1]){
-                return true;
+        if(array[x][y] != '0' && array[x+1][y] != '0' && array[x][y+1] != '0' && array[x+1][y+1] != '0'){
+            if(array[x][y] && array[x+1][y] && array[x][y+1] && array[x+1][y+1]){
+                if(array[x][y] == array[x+1][y] &&  array[x+1][y] == array[x][y+1] && array[x][y+1] == array[x+1][y+1]){
+                    return true;
+                }
             }
         }
     }
@@ -86,12 +132,21 @@ function block(x, y){
 }
 
 function detact(){
+    var checkDetact = false;
     for(var i=0; i<n; i++){
         for(var j=0; j<m; j++){
             if(block(i, j) == true){
+                checkDetact = true;
                 moveCheck(i, j);
             }
         }
+    }
+
+    if(checkDetact == true){
+        detactChange = true;
+    }
+    else{
+        detactChange = false;
     }
 }
 
@@ -102,11 +157,18 @@ function draw(blockArray){
 }
 
 function run(){
-    copyArray();
-    draw(array);
-    detact();
-    console.log("-------")
-    draw(copyBlockArray);
+    
+    do{
+        draw(array);
+        copyBlockArray = copyArray(array);
+        detact();
+        array = copyArray(copyBlockArray);
+        moveBottom(array);
+        console.log("\n------------\n");
+    }
+    while(detactChange == true);
+
+    console.log(getTotalPoint(array));
 }
 
 run();

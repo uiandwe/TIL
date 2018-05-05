@@ -47,66 +47,75 @@ var clonedArray = JSON.parse(JSON.stringify(nodesArray))
 
 ### 모든 경우의 수 
 ```
-function numberCases(array){
-    if(array.length <= 1){
-        return array;
-    }
-    else{
-        var hash = {};
-        var returnArray = [];
-        var copyArray = array;
-        var copyArray = JSON.parse(JSON.stringify(array))
-        for(var i=0; i<array.length; i++){
-            var array = JSON.parse(JSON.stringify(copyArray))
-            
-            var temp = array[0];
-            array[0] = array[i];
-            array[i] = temp;         
-            for(var j=1; j<array.length; j++){
-                for(var k=j; k<array.length; k++){
-                    var temp = array[k];
-                    array[k] = array[j];
-                    array[j] = temp;
-                
-                    if(!hash[array.join(",")]){
-                        hash[array.join(",")] = array.join(",");
-                    }
-                }
-            }
-        }
+// var array = [1,2,3,4];
+// var array = [1,2,3];
+var array = ['a','b','c'];
 
-        var keysArray = Object.keys(hash);
-        for (var i = 0; i < keysArray.length; i++) {
-            returnArray.push(keysArray[i])
-        }
-            
-        return returnArray;
-    }
+var returnArray = [];
+
+function perm(arr, depth) { 
+    if (depth == arr.length) { 
+        returnArray.push(arr);
+        return; 
+    } 
+    
+    for (var i = depth; i < arr.length; i++) { 
+        swap(arr, i, depth); 
+        perm(arr, depth + 1); 
+        swap(arr, i, depth); 
+    } 
 }
 
-console.log(numberCases([1, 2, 3]));
-console.log(numberCases([1, 2, 3, 4]));
-console.log(numberCases(['a', 'b', 'c']));
+function swap(arr, i, j) { 
+    var temp = arr[i]; 
+    arr[i] = arr[j]; 
+    arr[j] = temp; 
+}
 
 
-[ '1,2,3', '1,3,2', '2,1,3', '2,3,1', '3,2,1', '3,1,2' ]
-[ '1,2,3,4',
-  '1,3,2,4',
-  '1,4,2,3',
-  '1,4,3,2',
-  '2,1,3,4',
-  '2,3,1,4',
-  '2,4,1,3',
-  '2,4,3,1',
-  '3,2,1,4',
-  '3,1,2,4',
-  '3,4,2,1',
-  '3,4,1,2',
-  '4,2,3,1',
-  '4,3,2,1',
-  '4,1,2,3',
-  '4,1,3,2' ]
-[ 'a,b,c', 'a,c,b', 'b,a,c', 'b,c,a', 'c,b,a', 'c,a,b' ]
+perm(array, 0);
+console.log(returnArray);
+
+
+[ [ 1, 2, 3 ],
+  [ 1, 3, 2 ],
+  [ 2, 1, 3 ],
+  [ 2, 3, 1 ],
+  [ 3, 2, 1 ],
+  [ 3, 1, 2 ] ]
+  
+[ [ 1, 2, 3, 4 ],
+  [ 1, 2, 4, 3 ],
+  [ 1, 3, 2, 4 ],
+  [ 1, 3, 4, 2 ],
+  [ 1, 4, 3, 2 ],
+  [ 1, 4, 2, 3 ],
+  [ 2, 1, 3, 4 ],
+  [ 2, 1, 4, 3 ],
+  [ 2, 3, 1, 4 ],
+  [ 2, 3, 4, 1 ],
+  [ 2, 4, 3, 1 ],
+  [ 2, 4, 1, 3 ],
+  [ 3, 2, 1, 4 ],
+  [ 3, 2, 4, 1 ],
+  [ 3, 1, 2, 4 ],
+  [ 3, 1, 4, 2 ],
+  [ 3, 4, 1, 2 ],
+  [ 3, 4, 2, 1 ],
+  [ 4, 2, 3, 1 ],
+  [ 4, 2, 1, 3 ],
+  [ 4, 3, 2, 1 ],
+  [ 4, 3, 1, 2 ],
+  [ 4, 1, 3, 2 ],
+  [ 4, 1, 2, 3 ] ]
+
+
+[ [ 'a', 'b', 'c' ],
+  [ 'a', 'c', 'b' ],
+  [ 'b', 'a', 'c' ],
+  [ 'b', 'c', 'a' ],
+  [ 'c', 'b', 'a' ],
+  [ 'c', 'a', 'b' ] ]
 
 
 

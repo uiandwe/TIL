@@ -96,7 +96,7 @@ function getGameScore(formula){
 
 
 function getArrayGameFormula(str){
-    var pattern = /[0-9]+[SDT]+[*#]?/ig;
+    var pattern = /[0-9](S|D|T)[*#]?/ig;
     return str.match(pattern);
 }
 

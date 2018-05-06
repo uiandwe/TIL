@@ -3,6 +3,9 @@ https://github.com/KimWooHyun/dodopoint-store  ( 메인 페이지 )
 
 https://github.com/IkeSangHoon/Mysite ( 칸반 )
 
+### 서버
+- 채팅 서비스 만들기
+
 
 ### 알고리즘
 

@@ -38,7 +38,7 @@ arr1, arr2는 길이 n인 정수 배열로 주어진다.
 
 ```
 var n = 5;
-var arr1 = [9, 20, 28, 18, 11];
+var arr1 = [9, 1, 28, 18, 11];
 var arr2 = [30, 1, 21, 17, 28];
 
 
@@ -47,10 +47,23 @@ function intToBinary(int){
     return int.toString(2);
 }
 
+function fillZero(str){
+    if(str.length == n){
+        return str;
+    }
+    else{
+        var strRevers = str.split("").reverse();
+        var len = strRevers.length;
+        for(var i=0; i<n-len; i++){
+            strRevers.push("0");
+        }
+        return strRevers.reverse().join("");
+    }
+}
 
 function mergeBinary(int1, int2){
     var bin = int1 | int2;
-    return intToBinary(bin);
+    return fillZero(intToBinary(bin));
 }
 
 

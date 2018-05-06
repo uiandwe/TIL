@@ -47,36 +47,10 @@ function intToBinary(int){
     return int.toString(2);
 }
 
-function fillZero(str){
-    if(str.length == n){
-        return str;
-    }
-    else{
-        var strRevers = str.split("").reverse();
-        var len = strRevers.length;
-        for(var i=0; i<n-len; i++){
-            strRevers.push("0");
-        }
-        return strRevers.reverse().join("");
-    }
-}
-
 
 function mergeBinary(int1, int2){
-    var b1 = fillZero(intToBinary(int1));
-    var b2 = fillZero(intToBinary(int2));
-
-    var returnBinary = [];
-    for(var i=0; i<b1.length; i++){
-        if(b1[i] | b2[i]){
-            returnBinary.push(1);
-        }
-        else{
-            returnBinary.push(0);
-        }
-    }
-    
-    return returnBinary.join("");
+    var bin = int1 | int2;
+    return intToBinary(bin);
 }
 
 

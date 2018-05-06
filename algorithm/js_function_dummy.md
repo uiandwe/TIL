@@ -45,7 +45,7 @@ function reverseString(str){
 var clonedArray = JSON.parse(JSON.stringify(nodesArray))
 ```
 
-### 모든 경우의 수 
+### 모든 경우의 수 ( 순열 )
 ```
 // var array = [1,2,3,4];
 // var array = [1,2,3];

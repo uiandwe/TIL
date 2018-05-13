@@ -27,6 +27,21 @@ ex ) console.log(range(1, 10));
      
 ```
 
+### 두 수 사이의 합
+```
+function adder(a, b, s = 0){
+  for (var i = Math.min(a, b); i <= Math.max(a, b); i++) s += i;
+  return s;
+}
+
+
+function adder(a, b){
+    return (a+b)*(Math.abs(b-a)+1)/2;
+}
+
+```
+
+
 ### 문자열 뒤집기
 ```
 function reverseString(str){

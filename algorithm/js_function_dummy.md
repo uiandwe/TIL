@@ -9,16 +9,10 @@ function range(start, end){
 
     var returnArray = [];
 
-    if(start > end){
-        var temp = start;
-        start = end;
-        end = start;
-    }
-
-    for(var i=start; i<=end; i++){
+    for (var i = Math.min(start, end); i <= Math.max(start, end); i++) {
         returnArray.push(i);
     }
-
+    
     return returnArray;
 }
 

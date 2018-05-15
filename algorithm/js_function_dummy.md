@@ -228,3 +228,24 @@ console.log(p(6));
 
 
 ```
+
+### 약수
+```
+
+function divisors(int){
+    var res = [];
+    var cnt = 0;
+
+    for(var i = 1; i <= int; i++) {
+        if (int % i == 0) {
+            cnt++; // 약수 개수
+            res.push(i);
+        }
+    }
+    
+    return res
+}
+
+console.log(divisors(10))
+
+```

@@ -249,3 +249,29 @@ function divisors(int){
 console.log(divisors(10))
 
 ```
+
+
+### 최소공배수 최대공약수
+```
+
+
+function gcd(high, low) {
+	if (low == 0) {
+		return high;
+	} else {
+		return gcd(low, high % low);
+	}
+}
+
+
+console.log(gcd(10, 25))
+
+
+function lcm(a,b){
+    return (a*b/gcd(a,b));
+}
+
+console.log(lcm(10, 25))
+
+
+```

@@ -211,3 +211,19 @@ String.prototype.replaceAll = function(target, replacement) {
 
 
 
+### 피보나치
+```
+
+function p(n){
+    if(n == 0 || n==1 || n==2){
+        return n;
+    }
+    else{
+        return p(n-2)+p(n-1);
+    }
+}
+
+console.log(p(6));
+
+
+```

@@ -23,9 +23,16 @@ console.log(B)
 var A = [7138,4297,4469,1917,4810,8223,672,1177,3916,8001];
 var B = [941,7617,3672,5054,2580,9089,5691,328,6608,5201];
 
-A.sort((a,b) => { return a-b }); 
+A.sort((a,b) => { return a-b }); //오름차순
 B.sort((a,b) => { return a-b });
 B = B.reverse();
+
+console.log(A)
+console.log(B)
+
+
+A.sort((a,b) => { return b-a });  //내림차순
+B.sort((a,b) => { return b-a });
 
 console.log(A)
 console.log(B)

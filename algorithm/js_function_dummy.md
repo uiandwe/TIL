@@ -113,8 +113,9 @@ var array = ['a','b','c'];
 var returnArray = [];
 
 function perm(arr, depth) { 
+    
     if (depth == arr.length) { 
-        returnArray.push(arr);
+        returnArray.push(JSON.parse(JSON.stringify(array)));
         return; 
     } 
     

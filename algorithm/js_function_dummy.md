@@ -275,3 +275,23 @@ console.log(lcm(10, 25))
 
 
 ```
+
+
+
+### 에라토스테네스의 체
+```
+
+
+
+//32까지의 소수
+var isprime = [true, true];
+
+for(var i=2; i<16; i++){
+    if(!isprime[i]){
+        for(var j=2; i*j < 16*2; j++){
+            isprime[i*j] = true;
+        }
+    }
+}
+
+console.log(isprime)

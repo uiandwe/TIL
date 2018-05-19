@@ -7,7 +7,6 @@ var edgeList = [[0,1], [0,2], [1,0], [1,3], [2,0], [2,4], [2,5], [3,1], [4,2], [
 
 function dfs(start){
   var visitedList = []
-  var queue = [start]
   var adjacencyList = [];
   
   for(var i=0; i<vertexList.length; i++){

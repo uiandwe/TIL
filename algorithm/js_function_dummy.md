@@ -295,3 +295,26 @@ for(var i=2; i<16; i++){
 }
 
 console.log(isprime)
+
+
+```
+
+### 팩토리얼 memory
+
+```
+
+var memo = [];
+function f(n) {
+    if (memo[n]) {
+        return memo[n];
+    } else { 
+        var share = i = 1;
+        while (i <= n) {
+            share *= i;
+            memo[i++] = share;
+        }
+        return memo[--i];
+    }
+}
+
+```

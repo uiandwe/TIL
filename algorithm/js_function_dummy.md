@@ -104,6 +104,19 @@ function reverseString(str){
 var clonedArray = JSON.parse(JSON.stringify(nodesArray))
 ```
 
+
+### regexp ( 4 or 6  자리 숫자일 경우 )
+
+```
+function alpha_string46(s){
+var re = new RegExp(/^\d{6}$|^\d{4}$/);
+return re.test(s);
+}
+// 아래는 테스트로 출력해 보기 위한 코드입니다.
+console.log( alpha_string46("3627111") );
+
+```
+
 ### 모든 경우의 수 ( 순열 )
 ```
 // var array = [1,2,3,4];

@@ -212,6 +212,31 @@ String.prototype.replaceAll = function(target, replacement) {
 
 
 
+### 1에서부터의 숫자의 합
+```
+n*(n+1)/2
+```
+
+
+### 배열의 빠진 숫자 찾기 
+
+```
+function solution(A) {
+var totalSum = 0;
+
+for(var i=0; i<A.length; i++){
+totalSum += A[i];
+}
+return ((A.length+1)*(A.length+2)/2) - totalSum;
+}
+
+
+
+console.log(solution([2,3,1,5]));
+```
+
+
+
 ### 피보나치
 ```
 

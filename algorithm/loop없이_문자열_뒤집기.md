@@ -1,7 +1,7 @@
 ```
 
 
-var str = "fuck";
+var str = "hello?!";
 var str1 = "";
 function rec(index){
 

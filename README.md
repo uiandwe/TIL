@@ -246,4 +246,4 @@ function Person(){} var person = Person() var person = new Person()
 * string ' or "
 * [물어볼 질문들](/q&a/물어볼%20질문들.md)
 * [디더링](/q%26a/디더링.md)
-* [SPA 장단점](/default/SPA 장단점.md)
+* [SPA 장단점](/default/SPA%20장단점.md)

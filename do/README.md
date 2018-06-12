@@ -54,3 +54,17 @@ function SubPerson(){
 person = Person(10,100);
 console.log(3, person);
 ```
+
+
+8. 나이브 베이즈 분류기 (스팸 분류)
+
+9. 퓨리에 변환
+
+10. 블룸 필터
+
+11. 하이퍼로그로그
+
+12. simhash
+
+13. 선형 알고리즘
+

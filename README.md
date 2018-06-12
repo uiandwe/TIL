@@ -247,3 +247,5 @@ function Person(){} var person = Person() var person = new Person()
 * [물어볼 질문들](/q&a/물어볼%20질문들.md)
 * [디더링](/q%26a/디더링.md)
 * [SPA 장단점](/default/SPA%20장단점.md)
+* 영화 평점 사이트에서 서로 다른 평점에 대한 유사도는 어떻게 구해야 하는가?
+* 영화 평점 사이트에서 특정한 분류의 중요도를 높힐려면 어떻게 해야 하는가?

@@ -70,3 +70,6 @@ console.log(3, person);
 
 
 14.jsdoc
+https://msdn.microsoft.com/ko-kr/library/mt162307.aspx
+https://www.npmjs.com/package/jsdoc
+https://github.com/krampstudio/grunt-jsdoc

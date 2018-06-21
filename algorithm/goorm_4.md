@@ -40,7 +40,6 @@
 출력 2
 28 30
 
-
 var quicksort = function(arr, left, right) {
   
     if (left < right) {
@@ -73,6 +72,7 @@ var position = function(arr, left, right) {
 
 
 var arr = [6,20,34,8,38,40];
+var arr = [20, 16, 10, 45, 30, 28, 47];
 quicksort(arr, 0, arr.length-1);
 console.log(arr);
 var min_close = Number.MAX_VALUE;

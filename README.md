@@ -186,6 +186,7 @@ function Person(){} var person = Person() var person = new Person()
 * [가벼운 웹사이트 만들기](/default/가벼운%20웹사이트%20만들기.md)
 * [jpyter github](/default/jupyter%20github.md)
 * [해시테이블](default/해시.md)
+* [stable & unstable sort 에 대하여](/default/stable_unstable_Sort.md)
 
 ### 하드웨어
 * [빅 엔디안 vs 리틀 엔디안](/hardware/빅%20엔디안%20vs%20리틀%20엔디안.md)

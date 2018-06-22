@@ -40,3 +40,35 @@ quicksort(arr, 0, arr.length-1);
 console.log(arr);
 
 ```
+
+
+```
+캐시를 위한 array 필요
+
+function quick(array){
+    if(array.length <= 1){
+        return array;
+    }
+
+    var pivot = array[parseInt((arr.length-1)/2)];
+    var less = [];
+    var equal = [];
+    var more = [];
+    array.forEach(e => {
+        if(e < pivot){
+            less.push(e);
+        }
+        else if(e == pivot){
+            equal.push(e);
+        }
+        else {
+            more.push(e);
+        }
+    });
+
+    return quick(less)+equal+quick(more);
+}
+var arr = [ 4, 5, 1, 2];
+console.log(quick(arr));
+
+```

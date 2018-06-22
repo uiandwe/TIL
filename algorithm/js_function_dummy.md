@@ -356,3 +356,30 @@ function f(n) {
 }
 
 ```
+
+```
+
+두점 사이의 거리
+
+
+
+
+function ed(p1, p2){
+    console.log(p1, p2);
+    return Math.sqrt(Math.pow((p2.x-p1.x), 2) + Math.pow( (p2.y-p1.y), 2))
+}
+
+
+var p1 = {
+    x : 1,
+    y : 1
+}
+
+var p2 = {
+    x : 2,
+    y : 2
+}
+
+console.log(ed(p1, p2))
+
+```

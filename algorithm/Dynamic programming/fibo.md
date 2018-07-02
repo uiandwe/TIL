@@ -72,4 +72,18 @@ function fibonacci(n) {
 console.log(fibonacci(num), memo[num]-memo[num-1], memo[num-1]);
 
 
+
+0과 1을 차례대로 갯수를 세면
+1 0
+0 1
+1 1
+1 2
+2 3
+3 5
+5 8
+...
+
+순으로 피보나치 수열과 이전/ 이전것을 뺀 수인것을 알수 있다.
+그래서 메모제이션으로 전에것을 가져오면 
+
 ```

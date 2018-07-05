@@ -1,27 +1,30 @@
 ```
 
-def binary_search(list, item):
-    low = 0
-    high = len(list)-1
+function binarySearch(array, val){
+    var first = 0;
+    var last = array.length;
 
-    while low <= high : 
-        mid = (low + high) / 2
-        guess = list[mid]
+    while(first<=last){
+        var mid = Math.floor((first+last)/2);
+        if(array[mid] == val){
+            return mid;
+        }
+        else if(array[mid] > val){
+            last = mid-1;
+        }
+        else{
+            first = mid+1;
+        }
+    }
 
-        if guess == item:
-            return mid
-        
-        if guess > item :
-            high = mid - 1
-        else:
-            low = mid + 1
+    return -1;
+}
 
-    return None
+var a = [1,2,3,4,5,6,7,8,9,10];
+console.log(binarySearch(a, 2));
 
-my_list = [1,3,5,7,9]
 
-print binary_search(my_list, 3)
-print binary_search(my_list, 9)
+
 
 
 ```

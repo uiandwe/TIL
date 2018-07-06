@@ -12,7 +12,7 @@ http://slides.com/eungjun/rest#/
 https://blog.npcode.com/
 
 
-1. RestFul 아키텍쳐에 대해서 설명해주세요.
+1. ![RestFul 아키텍쳐에 대해서 설명해주세요.](/back_end/RestFul_아키텍처.md)
 
 
 2. 다익스트라 최단경로 알고리즘에 대해서 설명하고 수도코드를 작성해주세요.

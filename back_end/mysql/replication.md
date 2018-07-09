@@ -59,4 +59,9 @@ mysql > CHANGE MASTER TO MASTER_HOST='10.211.55.13',MASTER_USER='repl',MASTER_PA
 slave replication 실행 
 (slave mysql)
 mysql > start slave;
+
+!! 에러 확인
+(slave msyql)
+mysql > show slave status;
+last_error 칼럼을 통해서 에러를 확인한다. 
 ```

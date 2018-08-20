@@ -383,3 +383,12 @@ var p2 = {
 console.log(ed(p1, p2))
 
 ```
+
+
+### 2018년 a월 b일은 무슨 요일일까?
+
+```
+function solution(a, b) {
+  return ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'][new Date(2018, a - 1, b).getDay()];
+}
+```

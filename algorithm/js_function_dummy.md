@@ -392,3 +392,13 @@ function solution(a, b) {
   return ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'][new Date(2018, a - 1, b).getDay()];
 }
 ```
+
+### 가운데 글자 가져오기 (홀수일땐 하나 / 짝수일떄 두개)
+
+```
+
+function solution(s) {
+  return s.substr(Math.ceil(s.length / 2) - 1, s.length % 2 === 0 ? 2 : 1);
+}
+
+```

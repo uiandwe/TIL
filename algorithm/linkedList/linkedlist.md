@@ -65,6 +65,17 @@ function LinkedList(){
             return null;    
         }
     }
+    this.toString = function(){
+        var curr = this._head;
+        var str = "";
+
+        while(curr){
+            str += curr.data;
+            curr = curr.next;
+        }
+
+        return str;
+    }
         
 }
 
@@ -82,6 +93,7 @@ console.log(list.indexOf(10));
 console.log(list.indexOf(15));
 list.remove(2);
 console.log(list);
+console.log(list.toString());
 
 
 

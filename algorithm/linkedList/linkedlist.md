@@ -76,12 +76,15 @@ function LinkedList(){
 
         return str;
     }
+    this.isEmpty = function(){
+        return this._length === 0;
+    }
         
 }
 
 
 var list = new LinkedList();
-
+console.log(list.isEmpty());
 list.append(15);
 list.append(10);
 list.append(2);
@@ -94,6 +97,6 @@ console.log(list.indexOf(15));
 list.remove(2);
 console.log(list);
 console.log(list.toString());
-
+console.log(list.isEmpty());
 
 

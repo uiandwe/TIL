@@ -79,12 +79,16 @@ function LinkedList(){
     this.isEmpty = function(){
         return this._length === 0;
     }
+    this.size = function(){
+        return this._length;
+    }
         
 }
 
 
 var list = new LinkedList();
 console.log(list.isEmpty());
+console.log(list.size());
 list.append(15);
 list.append(10);
 list.append(2);
@@ -94,9 +98,10 @@ console.log(list.indexOf(11));
 console.log(list.indexOf(2));
 console.log(list.indexOf(10));
 console.log(list.indexOf(15));
+console.log(list.size());
 list.remove(2);
 console.log(list);
 console.log(list.toString());
 console.log(list.isEmpty());
-
+console.log(list.size());
 

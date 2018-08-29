@@ -22,7 +22,16 @@ function hashMap(){
         s = s.replace(/^\s*|\s*$/g, '');
         if (s == '' || isNaN(s)) return false;
         return true;
-      }
+    }
+    this.insert = function(data){
+        var key = this.moduler(data);
+        if(this.hash[key]){
+            
+        }
+        else{
+            this.hash[key] = key;
+        }
+    }
 }
 
 
@@ -30,4 +39,4 @@ function hashMap(){
 
 
 var h = new hashMap();
-h.moduler("adf");
+console.log(h.moduler("adf"));

@@ -122,6 +122,16 @@ function hashMap(){
             this.hash[key] = list;
         }
     }
+    this.getItem = function(data){
+        if(this.hash[data]){
+            var hash = this.hash[data];
+            return hash.toString();
+        }
+        else{
+            return -1;
+        }
+        
+    }
 }
 
 
@@ -129,4 +139,8 @@ function hashMap(){
 
 
 var h = new hashMap();
-console.log(h.moduler("adf"));
+h.insert(1);
+h.insert(1);
+h.insert("1");
+h.insert("asdf");
+console.log(h.getItem(1));

@@ -113,10 +113,13 @@ function hashMap(){
     this.insert = function(data){
         var key = this.moduler(data);
         if(this.hash[key]){
-            
+            var list = this.hash[key];
+            list.append(data);
         }
         else{
-            this.hash[key] = key;
+            var list = new LinkedList();
+            list.append(data);
+            this.hash[key] = list;
         }
     }
 }

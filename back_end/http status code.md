@@ -1,4 +1,4 @@
-#http status code
+# http status code
 
 
 *1xx* 클라이언트가 서버로 보내는 중 

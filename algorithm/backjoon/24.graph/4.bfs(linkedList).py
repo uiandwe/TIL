@@ -26,20 +26,6 @@ for i in a:
     print i
 
 
-
-def bfs(x):
-
-
-    for i in range(len(a[x])):
-        y = a[x][i][0]
-        check[y] = 1
-        if y in path is False:
-            path.append(y)
-
-        if check[y] == 0:
-            dfs(y)
-
-
 q.push(1)
 check[1] = 1
 

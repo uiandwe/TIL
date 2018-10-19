@@ -1,8 +1,4 @@
 # -*- coding: utf8 -*-
-import queue
-
-q = queue.Queue()
-
 import time
 start_time = time.time()
 

@@ -2,23 +2,37 @@ from Node import Node
 
 class BinarySearchTree(object):
     root = None
+    depth = 0
 
     def __init__(self):
         self.root = None
+        self.depth = 0
+        self.tempDepth = 1
 
     def insertValue(self, node, data):
         if node is None:
             node = Node(data)
+            self.setDepth(1)
         else:
             if data <= node.data:
+                self.tempDepth += 1
                 node.left = self.insertValue(node.left, data)
             else:
+                self.tempDepth += 1
                 node.right = self.insertValue(node.right, data)
+
+            self.setDepth(self.tempDepth)
+            self.tempDepth = 1
+
         return node
 
     def insert(self, data):
         self.root = self.insertValue(self.root, data)
         return self.root is not None
+
+    def setDepth(self, value):
+        if self.depth < value:
+            self.depth = value
 
     def find(self, key):
         return self.findValue(self.root, key)

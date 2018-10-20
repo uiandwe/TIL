@@ -21,3 +21,4 @@ bst.inOrder(bst.root)
 print "------postOrder----------"
 bst.postOrder(bst.root)
 print "----------------"
+print bst.depth

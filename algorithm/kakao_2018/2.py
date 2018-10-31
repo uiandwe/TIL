@@ -22,6 +22,7 @@ def solution(N, stages):
     for key in range(N, 0, -1):
         success = 0
         ing = 0
+        failRate = 0
 
         if key == N:
             add += test[key]
@@ -32,7 +33,8 @@ def solution(N, stages):
             add += test[key]
             ing = add
 
-        failRate = success / ing
+        if ing != 0:
+            failRate = success / ing
 
         if failRate in sortObj:
             sortObj[failRate].append(key)
@@ -46,4 +48,11 @@ def solution(N, stages):
 
 
 print(solution(5, [2, 1, 2, 6, 2, 4, 3, 3]))
-print(solution(4, [4, 4, 4, 4, 4]))
+print(solution(3, [4, 4, 4, 4, 4]))
+import random
+n = random.randrange(1, 500)
+a = []
+for i in range(1, 200000):
+    a.append(random.randrange(0, n))
+
+print(solution(n, a))

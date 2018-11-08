@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[3]:
+# In[5]:
 
 
 import tensorflow as tf
@@ -46,7 +46,11 @@ with tf.Session() as sess:
             print(step, sess.run(cost, feed_dict={X: x_data, Y:y_data}))
             
             
-            
+    all = sess.run(hypothesis, feed_dict={X:[[1, 11, 7, 9],
+                                         [1, 3, 4, 3],
+                                         [1, 1, 0, 1]]})
+    print(all, sess.run(tf.arg_max(all, 1)))
+    
             
 
 

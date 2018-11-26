@@ -5,10 +5,9 @@ def solution(array):
     for i in range(1, len(array)):
         d[i] = max(d[i-1] + array[i], array[i])
 
-    maxInt = 0
+    maxInt = float('-inf')
     for i in d:
-        if i > maxInt:
-            maxInt = i
+        maxInt = max(i, maxInt)
 
     print(maxInt)
 

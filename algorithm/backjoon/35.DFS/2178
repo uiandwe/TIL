@@ -1,0 +1,46 @@
+map = [
+[1,0,1,1,1,1],
+[1,0,1,0,1,0],
+[1,0,1,0,1,1],
+[1,1,1,0,1,1],
+]
+
+map = [
+[1,1,0,1,1,0],
+[1,1,0,1,1,0],
+[1,1,1,1,1,1],
+[1,1,1,1,0,1],
+]
+
+
+map = [
+    [1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1],
+    [1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1]
+]
+
+min_step = float('inf')
+position_x = [1, -1, 0, 0]
+position_y = [0, 0, 1, -1]
+
+def dfs(x, y, n, m, step):
+    global min_step
+
+    if x == n and y == m:
+        if min_step > step:
+            min_step = step
+    else:
+        if x >= 0 and x <= n and y >= 0 and y<= m:
+            if map[x][y] == 1:
+                step += 1
+                map[x][y] = 0
+                for i in range(4):
+                    dfs(x+position_x[i], y+position_y[i], n, m, step)
+
+                map[x][y] = 1
+def solution():
+    n = len(map)
+    m = len(map[0])
+    dfs(0, 0, n-1, m-1, 1)
+    print(min_step)
+
+solution()

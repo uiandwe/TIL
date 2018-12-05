@@ -39,7 +39,7 @@ def solution(array):
 
     for i in range(1, len(d)):
         while s.empty() is False and d[s.top()] > d[i]:
-            h = s.pop()
+            h = d[s.pop()]
             w = i - s.top() -1
             ans = max(ans, h*w)
         s.push(i)
@@ -48,3 +48,4 @@ def solution(array):
 
 
 solution([1, 2, 3])
+solution([2, 1, 4, 5, 1, 3, 3])

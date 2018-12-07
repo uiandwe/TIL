@@ -37,3 +37,24 @@ def solution(m):
 solution(4)
 solution(7)
 solution(10)
+
+
+
+
+def solution(n):
+    d = [0 for x in range(n+1)]
+
+    d[1] = 1
+    d[2] = 2
+    d[3] = 4
+
+    for i in range(4, n+1):
+        d[i] = d[i-3] + d[i-2] + d[i-1]
+
+    print(d[n], d)
+
+
+solution(3)
+solution(4)
+solution(7)
+solution(10)

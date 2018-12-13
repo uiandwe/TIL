@@ -1,21 +1,17 @@
-d = [1, 1]
+def solution(state):
+    d = [0 for x in range(state+1)]
+    d[0] = 1
+    d[1] = 1
+    d[2] = 2
+    if state == 1:
+        return d[1]
 
-
-def fibo(i):
-    if i == 0 or i == 1:
-        return 1
-    if d[i] != 0:
-        return d[i]
-    else:
-        d[i] = d[i - 1] + d[i - 2]
-        return d[i]
-
-
-def solution(n):
-    global d
-    for i in range(n):
-        d.append(0)
-        fibo(i)
+    for i in range(2, state+1):
+        d[i] = d[i-1] + d[i-2]
     print(d)
+    return d[state]
 
-solution(10)
+
+print(solution(2))
+print(solution(3))
+print(solution(10))

@@ -29,3 +29,18 @@ c = [1, 2, 5]
 An = An + A(n-c)
 
 '''
+
+
+
+def solution(coin, money):
+    d = [0 for x in range(money+1)]
+    d[0] = 1
+
+    for c in coin:
+        for j in range(c, money+1):
+            if j-c >=0:
+                d[j] = d[j-c] + d[j]
+
+    print(d)
+
+solution([1, 2, 5], 10)

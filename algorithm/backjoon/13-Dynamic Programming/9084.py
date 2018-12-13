@@ -3,7 +3,7 @@ def solutioin(coin, money):
     d[0] = 1
 
     for c in coin:
-        for i in range(money+1):
+        for i in range(c, money+1):
             if i-c >= 0:
                 d[i] = d[i-c]+d[i]
 

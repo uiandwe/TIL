@@ -1,3 +1,5 @@
+# https://academy.elice.io/courses/486/lectures/3420/materials/21
+
 import sys
 import math
 

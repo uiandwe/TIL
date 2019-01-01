@@ -20,4 +20,4 @@
 - string ' or "
 
 - python
-* 파이썬 generator에 대해 아는 만큼 설명해주세요.
+* [파이썬 generator에 대해 아는 만큼 설명해주세요.](q&a/python/1.md)

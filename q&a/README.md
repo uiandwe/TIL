@@ -22,3 +22,4 @@
 - python
 * [파이썬 generator에 대해 아는 만큼 설명해주세요.](./python/1.md)
 * [파이썬에서 클래스를 상속하면, 메서드는 어떤 식으로 실행되나요?](./python/2.md)
+* [어떤 request가 Django API까지 도달하는 과정을 최대한 자세히 설명해주세요.](./python/3.md)

@@ -28,3 +28,4 @@
 * [Django ORM에서 지연 평가를 하곤 하는데요. 직접 구현한다면 어떻게 구현하겠습니까?](./python/6.md)
 * [파이썬의 GC는 어떻게 작동하나요?](./python/7.md)
 * [duck typing](./python/8.md)
+* [python에서 메모리 릭이 발생할 수 있는 경우는 언제일까요?](./python/9.md)

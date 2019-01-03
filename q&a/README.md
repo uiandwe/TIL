@@ -27,3 +27,4 @@
 * [Django ORM의 작동 방식에 대해 설명해주세요.](./python/5.md)
 * [Django ORM에서 지연 평가를 하곤 하는데요. 직접 구현한다면 어떻게 구현하겠습니까?](./python/6.md)
 * [파이썬의 GC는 어떻게 작동하나요?](./python/7.md)
+* [duck typing](./python/8.md)

@@ -18,6 +18,8 @@
 - 정규표현식
 - 웹브라우저 작동 방식
 - string ' or "
+### DB
+* [CDC 설명과 구현 방법 ](./CDC 설명과 구현 방법.md)
 
 ### python
 * [파이썬 generator에 대해 아는 만큼 설명해주세요.](./python/1.md)

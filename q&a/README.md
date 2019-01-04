@@ -19,7 +19,8 @@
 - 웹브라우저 작동 방식
 - string ' or "
 ### DB
-* [CDC 설명과 구현 방법 ](./CDC%20설명과%20구현%20방법.md)
+* [CDC 설명과 구현 방법 ](./db/CDC%20설명과%20구현%20방법.md)
+* [transaction 과 storage engine 관계](./db/transaction%20과%20storage%20engine%20관계.md)
 
 ### python
 * [파이썬 generator에 대해 아는 만큼 설명해주세요.](./python/1.md)

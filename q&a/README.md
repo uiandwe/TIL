@@ -18,6 +18,9 @@
 - 정규표현식
 - 웹브라우저 작동 방식
 - string ' or "
+### server
+* [proxy/reverse proxy](proxy_reverseproxy.md)
+
 ### DB
 * [CDC 설명과 구현 방법 ](./db/CDC%20설명과%20구현%20방법.md)
 * [transaction 과 storage engine 관계](./db/transaction%20과%20storage%20engine%20관계.md)

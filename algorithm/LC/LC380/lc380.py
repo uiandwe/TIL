@@ -11,14 +11,15 @@ class RandomizedSet:
         if val in self.dict:
             return False
         else:
-            self.dict[val] = 1
             self.array.append(val)
+            self.dict[val] = len(self.array)-1
+
             return True
 
     def remove(self, val):
         if val in self.dict:
+            self.array.pop(self.dict[val])
             del self.dict[val]
-            self.array.pop(self.array.index(val))
             return True
         else:
             return False

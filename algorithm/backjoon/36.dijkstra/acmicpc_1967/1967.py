@@ -51,10 +51,14 @@ def solution(n, array):
         map[node1][node2] = weight
         map[node2][node1] = weight
 
+    end_point_node = []
+    for i in range(len(map)):
+        if len([1 for i in map[i] if i > 0]) == 1:
+            end_point_node.append(i)
+
     max_path_length = 0
-    for node_num in range(1, n+1):
+    for node_num in end_point_node:
         temp_length = dijkstra(node_num, map)
         max_path_length = max(max_path_length, temp_length)
 
     return max_path_length
-

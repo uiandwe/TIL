@@ -6,7 +6,6 @@ def solution(n):
 
     for i in range(2, n+1):
         for j in range(10):
-            d[i][j] = 0
             if j - 1 >= 0:
                 d[i][j] += d[i-1][j-1]
             if j + 1 <= 9:

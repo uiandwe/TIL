@@ -1,0 +1,12 @@
+def solution(a, b, names):
+    d = []
+    dict = {}
+    for name in names:
+        if name in dict:
+            del dict[name]
+            d.append(name)
+        else:
+            dict[name] = 1
+
+    return len(d)
+

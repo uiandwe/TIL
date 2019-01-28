@@ -2,7 +2,9 @@ package com.nts.algorithm;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 class Node{
 	int val = 0;
@@ -118,6 +120,24 @@ class QuickSort1{
 			if(n.right != null) inOrder(n.right, ret);
 		}
 	}
+	
+	public void dfs(bNode root, List<Integer> ret) {
+		if(root == null) {
+			return;
+		}
+		else {
+			Queue<bNode> q = new LinkedList<>();
+			q.offer(root);
+			
+			while(!q.isEmpty()) {
+				bNode temp = q.poll();
+				ret.add(temp.val);
+				
+				if(temp.left != null) q.offer(temp.left);
+				if(temp.right != null) q.offer(temp.right);
+			}
+		}
+	}
 }
 
 public class testDemo {
@@ -157,6 +177,15 @@ public class testDemo {
 		Iterator<Integer> it = al.iterator();
 		while(it.hasNext()) {
 			System.out.print(it.next()+"\t");
+		}
+		
+		System.out.println("\n----------------");
+		
+		List<Integer> al2 = new ArrayList();
+		q.dfs(q.broot, al2);
+		Iterator<Integer> it2 = al2.iterator();
+		while(it2.hasNext()) {
+			System.out.print(it2.next()+"\t");
 		}
 	}
 

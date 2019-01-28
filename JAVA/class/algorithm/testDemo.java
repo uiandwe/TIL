@@ -27,6 +27,26 @@ class QuickSort1{
 		
 	}
 	
+	
+	public int search(int[] nums, int data) {
+		int left = 0;
+		int right = nums.length-1;
+		
+		while(left <= right) {
+			int mid = (left+right)/2;
+			if(nums[mid] == data) {
+				return mid;
+			}
+			else if(nums[mid] < data) {
+				left = mid+1;
+			}
+			else {
+				right = mid-1;
+			}
+		}
+		
+		return -1;
+	}
 }
 
 public class testDemo {
@@ -38,8 +58,8 @@ public class testDemo {
 		for(int num:nums) {
 			System.out.print(num+"\t");
 		}
-		
-		
+		System.out.println("\n----------------");
+		System.out.println(q.search(nums, 1));
 
 	}
 

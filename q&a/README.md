@@ -19,7 +19,7 @@
 - 웹브라우저 작동 방식
 - string ' or "
 ### 통신
-* [HTTP 헤더의 종류 및 항목]()
+* [HTTP 헤더의 종류 및 항목](HTTP%20헤더의%20종류%20및%20항목.md)
 ### server
 * [proxy/reverse proxy](proxy_reverseproxy.md)
 * [Falut-tolerant(무정지) 시스템으로 가기 위한 개발 방법](Falut-tolerant(무정지)%20시스템으로%20가기%20위한%20개발%20방법.md)

@@ -18,6 +18,8 @@
 - 정규표현식
 - 웹브라우저 작동 방식
 - string ' or "
+### 통신
+* [HTTP 헤더의 종류 및 항목]()
 ### server
 * [proxy/reverse proxy](proxy_reverseproxy.md)
 * [Falut-tolerant(무정지) 시스템으로 가기 위한 개발 방법](Falut-tolerant(무정지)%20시스템으로%20가기%20위한%20개발%20방법.md)

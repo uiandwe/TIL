@@ -1,0 +1,4 @@
+def test_12948():
+    assert "*******4444" == solution("01033334444")
+    assert "4444" == solution("4444")
+    assert "*****8888" == solution("027778888")

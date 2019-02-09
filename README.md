@@ -161,6 +161,7 @@ function Person(){} var person = Person() var person = new Person()
 * [list comprehensions이 더 빠른 이유](/back_end/python/list%20comprehensions이%20더%20빠른%20이유.md)
 * [django/장고 개발 철학](django/장고%20개발%20철학.md)
 * [django/import *는 피하자](/back_end/python/django/import%20*는%20피하자.md)
+* [django는 좋은 프레임워크인가?](https://www.youtube.com/watch?v=nGHr5IXfsqA#t=1h56m15s)
 * [파이썬 generator에 대해 아는 만큼 설명해주세요.](/q%26a/python/1.md)
 
 

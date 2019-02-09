@@ -184,7 +184,6 @@ function Person(){} var person = Person() var person = new Person()
 * [페이지 로딩 시간을 줄이는 3가지 방법은?](/default/페이지%20로딩%20시간을%20줄이는%203가지%20방법은%3F.md)
 * 표준의 중요함을 설명하세요.
 * [가벼운 웹사이트 만들기](/default/가벼운%20웹사이트%20만들기.md)
-* [jpyter github](/default/jupyter%20github.md)
 * [해시테이블](default/해시.md)
 * [stable & unstable sort 에 대하여](/default/stable_unstable_Sort.md)
 

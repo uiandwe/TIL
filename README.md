@@ -132,13 +132,10 @@ function Person(){} var person = Person() var person = new Person()
 * [프락시](/back_end/프락시.md)
 * [게이트웨이](/back_end/게이트웨이.md)
 * [브라우저 기본 구조](/back_end/브라우저%20기본%20구조.md)
-* [엔터티 범위 요청](/back_end/엔터티 범위 요청.md)
 * [리다이렉트](/back_end/리다이렉트.md)
 * [mysql order by에서의 성능 개선](/back_end/mysql/mysql_orderby에서의_성능개선.md)
 * [order by 랜덤 정렬](/back_end/mysql/orderby_랜덤정렬.md)
 * [페이징 쿼리](/back_end/mysql/페이징쿼리.md)
-* 대규모 사이트의 서버 구성(전자 상거래 소비스 구조)
-* 각 언어별 가비지 컬렉션
 * [동기와 비동기](/back_end/%EB%8F%99%EA%B8%B0%20%EB%B9%84%EB%8F%99%EA%B8%B0.md)
 * [restful](/back_end/RestFul_아키텍처.md)
 

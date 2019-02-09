@@ -1,7 +1,7 @@
-#list comprehensions이 더 빠른 이유.
+# list comprehensions이 더 빠른 이유.
 
 
-##Why are list comprehensions faster than for loops in Python?
+## Why are list comprehensions faster than for loops in Python?
 
 The speed of list comprehensions is notably better than for-loops when appending items to the list.
 

@@ -20,7 +20,7 @@ Today I Learned
 * [< em >, < strong >, < dfn >, < code >, < samp >, < kbd >, < var >](/HTML/<em>, <strong>, <dfn>, <code>, <samp>, <kbd>, <var> 태그.md)
 * [Emphasis vs Strong](/HTML/Emphasis vs Strong.md)
 * [이탤릭체인 태그](/HTML/이탤릭체인 태그.md)
-* 
+
 
 
 
@@ -161,7 +161,7 @@ function Person(){} var person = Person() var person = new Person()
 * [list comprehensions이 더 빠른 이유](/back_end/python/list%20comprehensions이%20더%20빠른%20이유.md)
 * [django/장고 개발 철학](django/장고%20개발%20철학.md)
 * [django/import *는 피하자](/back_end/python/django/import%20*는%20피하자.md)
-* 
+
 
 ## 일반적인 질문:
 

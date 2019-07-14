@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from pyspark import SparkContext, SparkConf
+import random
 
 def increase(numbers):
     print("db 연결!!")
@@ -11,6 +12,9 @@ def increaseWithIndex(idx, numbers):
     for i in numbers:
         if (idx == 1):
             yield i
+
+def test1(l):
+    print(l)
 
 if __name__ == '__main__':
     conf = SparkConf()
@@ -151,4 +155,30 @@ if __name__ == '__main__':
     result = rdd.aggregateByKey(0, lambda k, v: int(v) + k,lambda v, k: k + v)
     print(result.collect())
 
+    ###### pip 와 파티션 관련 연산
+    rdd = sc.parallelize(["1,2,3", "4,5,6", "7,8,9"])
+    result = rdd.pipe("cut -f 1,3 -d ,")
+    print(result.collect()) # [u'1,3', u'4,6', u'7,9']
+
+    rdd1 = sc.parallelize(list(range(1, 11)), 10)
+    # 파티션 재조정
+    rdd2 = rdd1.coalesce(5)
+    rdd3 = rdd2.repartition(10)
+    print("partition size: %d" % rdd1.getNumPartitions()) # 10
+    print("partition size: %d" % rdd2.getNumPartitions()) # 5
+    print("partition size: %d" % rdd3.getNumPartitions()) # 10
+
+    data = [random.randrange(1, 100) for i in range(0, 10)]
+    rdd1 = sc.parallelize(data).map(lambda v: (v, "-"))
+    # 파티션을 나눌때 앞의 숫자로 정렬 (3이라면 3으로 나눌때 나머지0, 1, 2 로 3개로 나뉨)
+    rdd2 = rdd1.repartitionAndSortWithinPartitions(3, lambda x: x)
+    rdd2.foreachPartition(lambda values: test1(list(values)))
+    
+    rdd1 = sc.parallelize([("apple", 1), ("mouse", 1), ("monitor", 1)], 5)
+    # 파티션 재조정 
+    rdd2 = rdd1.partitionBy(3)
+    print("rdd1: %d, rdd2: %d" % (rdd1.getNumPartitions(), rdd2.getNumPartitions()))
+
+    ###### 필터와 정렬 
+    
     sc.stop()

@@ -285,4 +285,9 @@ if __name__ == '__main__':
     for k, v in rdd3.collect():
         print(k, v)
 
+    bu = sc.broadcast(set(["u1", "u2"]))
+    rdd = sc.parallelize(["u1", "u2", "u3", "u4", "u5"], 3)
+    result = rdd.filter(lambda v: v in bu.value)
+    print(result.collect())
+    
     sc.stop()

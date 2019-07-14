@@ -16,6 +16,11 @@ def increaseWithIndex(idx, numbers):
 def test1(l):
     print(l)
 
+def sideEffect(values):
+    print("Partition Side Effect!!")
+    for v in values:
+        print("Value Side Effect: %s" % v)
+
 if __name__ == '__main__':
     conf = SparkConf()
     sc = SparkContext(master="local[*]", appName="RDDOpSample", conf=conf)
@@ -211,5 +216,37 @@ if __name__ == '__main__':
     rdd = sc.parallelize(range(1, 100))
     result = rdd.take(5)
     print(result) # 1, 2, 3, 4, 5
+
+    rdd = sc.parallelize(range(1, 100))
+    result = rdd.takeSample(False, 20)
+    print(len(result), result) # (20, [99, 82, 45, 7, 44, 4, 69, 54, 96, 60, 25, 46, 3, 94, 23, 41, 87, 49, 93, 19])
+
+    rdd = sc.parallelize([1, 1, 2, 3, 3])
+    result = rdd.countByValue()
+    for k, v in result.items():
+        print(k, "->", v)
+    # (1, '->', 2)
+    # (2, '->', 1)
+    # (3, '->', 2)
+
+    rdd = sc.parallelize(range(1, 11), 3)
+    # 임의의 두 수에 대한 연산(여기선 덧셈), 파티션 별로 작동
+    result = rdd.reduce(lambda v1, v2: v1 + v2)
+    print(result) # 55
+
+    rdd = sc.parallelize(range(1, 11), 3)
+    # 첫번째 인자 부터 임의의 수에 대한 연산 (  reduced와 같으나, 초기값을 지정할수 있음)
+    result = rdd.fold(0, lambda v1, v2: v1 + v2)
+    print(result)
+
+    rdd = sc.parallelize(range(1, 11))
+    result = rdd.sum()
+    print(result) # 55
+
+    rdd = sc.parallelize(range(1, 11))
+    result = rdd.foreach(lambda v: test1("Value Side Effect: %s" % v))
+
+    rdd = sc.parallelize(range(1, 11), 3)
+    result = rdd.foreachPartition(sideEffect)
 
     sc.stop()

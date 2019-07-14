@@ -7,6 +7,13 @@ def increase(numbers):
     return (i + 1 for i in numbers)
 
 
+# MapPartitionsWithIndex
+def increaseWithIndex(idx, numbers):
+    for i in numbers:
+        if (idx == 1):
+            yield i
+
+
 if __name__ == '__main__':
     conf = SparkConf()
     sc = SparkContext(master="local[*]", appName="RDDOpSample", conf=conf)
@@ -22,12 +29,34 @@ if __name__ == '__main__':
     rdd2 = rdd.map(lambda v : v + 1)
     print(rdd2.collect())
 
+    ###### rdd 의 map 연산들 ####
+    
     rdd1 = sc.parallelize(["apple,orange", "grape,apple,mango", "blueberry,tomato,orange"])
-    # in / out 데이터형식이 다를때 
+    # in / out 데이터형식이 다를때
     rdd2 = rdd1.flatMap(lambda s : s.split(","))
     print(rdd2.collect())
 
-    rdd1 = sc.parallelize(range(1, 11))
+    rdd1 = sc.parallelize(range(1, 11), 3)
     # 각 파티션별로 동작 (ex: 파티션별 디비 연결이나, 공유 데이터로 활용)
     rdd2 = rdd1.mapPartitions(increase)
+    print("mapPartitions")
     print(rdd2.collect())
+
+    rdd1 = sc.parallelize(range(1, 11), 3)
+    rdd2 = rdd1.mapPartitionsWithIndex(increaseWithIndex)
+    print("mapPartitionsWithIndex")
+    print(rdd2.collect())
+
+    rdd1 = sc.parallelize(["a", "b", "c"])
+    rdd2 = rdd1.map(lambda v : (v, 1))
+    # rdd가 key, value 일때만 사용 가능, 키는 변경 불가
+    rdd3 = rdd2.mapValues(lambda i: i+1)
+    print(rdd3.collect())
+
+    rdd1 = sc.parallelize([(1, "a,b"), (2, "b,c"), (3, "a,c")])
+    # key, value 면서 리턴값이 다를때 사용
+    rdd2 = rdd1.flatMapValues(lambda s: s.split(","))
+    print(rdd2.collect())
+
+
+    

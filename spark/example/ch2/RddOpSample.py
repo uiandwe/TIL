@@ -30,7 +30,7 @@ if __name__ == '__main__':
     print(rdd2.collect())
 
     ###### rdd 의 map 연산들 ####
-    
+
     rdd1 = sc.parallelize(["apple,orange", "grape,apple,mango", "blueberry,tomato,orange"])
     # in / out 데이터형식이 다를때
     rdd2 = rdd1.flatMap(lambda s : s.split(","))
@@ -58,5 +58,45 @@ if __name__ == '__main__':
     rdd2 = rdd1.flatMapValues(lambda s: s.split(","))
     print(rdd2.collect())
 
+    ###### zip 연산들( 두개 이상의  RDD를 하나로 )
 
-    
+    rdd1 = sc.parallelize(["a", "b", "c"])
+    rdd2 = sc.parallelize([1, 2, 3])
+    # 서로 갯수가 맞지 않으면 에러
+    result = rdd1.zip(rdd2)
+    print(result.collect())
+
+    rdd1 = sc.parallelize(range(1, 11))
+    # 특정 그룹으로 지정
+    rdd2 = rdd1.groupBy(lambda v: "even" if v % 2 == 0 else "odd")
+    for x in rdd2.collect():
+        print(x[0], list(x[1]))
+
+    rdd1 = sc.parallelize(["a", "b", "c", "b", "c"])
+    rdd1 = rdd1.map(lambda v: (v, 1))
+    # key, value 일때만
+    rdd2 = rdd1.groupByKey()
+    for x in rdd2.collect():
+        print(x[0], list(x[1]))
+
+    rdd1 = sc.parallelize([("k1", "v1"), ("k1", "v3"), ("k2", "v2")])
+    rdd2 = sc.parallelize([("k1", "v4")])
+    # col 합치기
+    result = rdd1.cogroup(rdd2)
+    for x in result.collect():
+        print(x[0])
+        for y in x[1]:
+            print(list(y))
+
+    ### 집합과 관련된 연산들 
+
+
+
+
+
+
+
+
+
+
+    sc.stop()

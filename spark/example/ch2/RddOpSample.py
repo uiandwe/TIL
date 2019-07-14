@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from pyspark import SparkContext, SparkConf
 
-
 def increase(numbers):
     print("db 연결!!")
     return (i + 1 for i in numbers)
@@ -12,7 +11,6 @@ def increaseWithIndex(idx, numbers):
     for i in numbers:
         if (idx == 1):
             yield i
-
 
 if __name__ == '__main__':
     conf = SparkConf()
@@ -149,7 +147,8 @@ if __name__ == '__main__':
     result = rdd.reduceByKey(lambda v1, v2: v1+v2)
     print(result.collect()) # [('b', 2), ('a', 1)]
 
-    
-    
+    rdd = sc.parallelize([("Math", 100), ("Eng", 80), ("Math", 50), ("Eng", 70), ("Eng", 90)])
+    result = rdd.aggregateByKey(0, lambda k, v: int(v) + k,lambda v, k: k + v)
+    print(result.collect())
 
     sc.stop()

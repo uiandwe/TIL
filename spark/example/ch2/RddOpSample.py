@@ -173,12 +173,43 @@ if __name__ == '__main__':
     # 파티션을 나눌때 앞의 숫자로 정렬 (3이라면 3으로 나눌때 나머지0, 1, 2 로 3개로 나뉨)
     rdd2 = rdd1.repartitionAndSortWithinPartitions(3, lambda x: x)
     rdd2.foreachPartition(lambda values: test1(list(values)))
-    
+
     rdd1 = sc.parallelize([("apple", 1), ("mouse", 1), ("monitor", 1)], 5)
-    # 파티션 재조정 
+    # 파티션 재조정
     rdd2 = rdd1.partitionBy(3)
     print("rdd1: %d, rdd2: %d" % (rdd1.getNumPartitions(), rdd2.getNumPartitions()))
 
-    ###### 필터와 정렬 
-    
+    ###### 필터와 정렬
+
+    rdd1 = sc.parallelize(range(1, 6))
+    # 필터로 참인 애들만
+    rdd2 = rdd1.filter(lambda i: i > 2)
+    print(rdd2.collect())
+
+    rdd = sc.parallelize([("q", 1), ("z", 1), ("a", 1)])
+    # 키로 정렬
+    result = rdd.sortByKey()
+    print(result.collect())
+
+    rdd = sc.parallelize([("k1", "v1"), ("k2", "v2"), ("k3", "v3")])
+    print(rdd.keys().collect())
+    print(rdd.values().collect())
+
+    rdd = sc.parallelize(range(1, 101))
+    # 샘플링
+    result1 = rdd.sample(False, 0.5, 100)
+    result2 = rdd.sample(True, 1.5, 100)
+    print(result1.take(5))
+    print(result2.take(5))
+
+    ###### RDD 액션
+
+    rdd = sc.parallelize([5, 4, 1])
+    result = rdd.first()
+    print(result) # 5
+
+    rdd = sc.parallelize(range(1, 100))
+    result = rdd.take(5)
+    print(result) # 1, 2, 3, 4, 5
+
     sc.stop()

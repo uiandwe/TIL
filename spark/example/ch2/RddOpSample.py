@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from pyspark import SparkContext, SparkConf
 import random
+import os
 
 def increase(numbers):
     print("db 연결!!")
@@ -248,5 +249,40 @@ if __name__ == '__main__':
 
     rdd = sc.parallelize(range(1, 11), 3)
     result = rdd.foreachPartition(sideEffect)
+
+    rdd = sc.parallelize(range(1, 1000), 3)
+    codec = "org.apache.hadoop.io.compress.GzipCodec"
+    # save
+    rdd.saveAsTextFile(os.getcwd() + "/testresult/sub1")
+    # save(gzip)
+    rdd.saveAsTextFile(os.getcwd() + "/testresult/sub2", codec)
+    # load
+    rdd2 = sc.textFile(os.getcwd() + "/testresult/sub1")
+    print(rdd2.take(10))
+
+    rdd = sc.parallelize(range(1, 1000), 3)
+    # save
+    # 아래 경로는 실제 저장 경로로 변경하여 테스트
+    rdd.saveAsPickleFile(os.getcwd() + "/data/sample/saveAsObjectFile/python")
+    # load
+    # 아래 경로는 실제 저장 경로로 변경하여 테스트
+    rdd2 = sc.pickleFile(os.getcwd() + "/data/sample/saveAsObjectFile/python")
+    print(rdd2.take(10))
+
+    path = os.getcwd() + "/data/sample/saveAsSeqFile/python"
+
+    outputFormatClass = "org.apache.hadoop.mapreduce.lib.output.SequenceFileOutputFormat"
+    inputFormatClass = "org.apache.hadoop.mapreduce.lib.input.SequenceFileInputFormat"
+    keyClass = "org.apache.hadoop.io.Text"
+    valueClass = "org.apache.hadoop.io.IntWritable"
+    conf = "org.apache.hadoop.conf.Configuration"
+    rdd1 = sc.parallelize(["a", "b", "c", "b", "c"])
+    rdd2 = rdd1.map(lambda x: (x, 1))
+    # save
+    rdd2.saveAsNewAPIHadoopFile(path, outputFormatClass, keyClass, valueClass)
+    # load
+    rdd3 = sc.newAPIHadoopFile(path, inputFormatClass, keyClass, valueClass)
+    for k, v in rdd3.collect():
+        print(k, v)
 
     sc.stop()

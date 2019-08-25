@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
+import collections
+
+
 class Queue(object):
     def __init__(self, length):
-        self._queue_array = [0 for i in range(length)]
+        self._queue_array = collections.deque([0 for i in range(length)])
+        self._sum = 0
 
     def push(self, value):
         self._queue_array.append(value)
+        self._sum += value
 
     def pop(self):
-        return self._queue_array.pop(0)
-
-    def first(self):
-        if self.length() > 0:
-            return self._queue_array[0]
-        else:
-            return 0
+        self._sum -= self._queue_array.popleft()
 
     def length(self):
         return len(self._queue_array)
@@ -25,27 +25,26 @@ class Queue(object):
     def queue_array(self):
         return self._queue_array
 
+    @property
+    def total(self):
+        return self._sum
+
 
 def solution(bridge_length, weight, truck_weights):
 
     q = Queue(bridge_length)
 
     answer = 0
-    while len(truck_weights) > 0:
+    while truck_weights:
         answer += 1
         q.pop()
 
         push_value = 0
-        if q.sum() + truck_weights[0] <= weight:
+        if q.total + truck_weights[0] <= weight and q.length() <= bridge_length:
             push_value = truck_weights.pop(0)
         q.push(push_value)
 
-    if q.sum() > 0:
-        max = 0
-        for index, val in enumerate(q.queue_array):
-            if val > 0:
-                max = index+1
-        answer += max
+    answer += q.length()
 
     return answer
 
@@ -56,3 +55,4 @@ def test_solution():
     assert solution(100, 100, [10,10,10,10,10,10,10,10,10,10]) == 110
 
 print(solution(2, 10, [7,4,5,6]))
+

@@ -1,26 +1,21 @@
 # -*- coding: utf-8 -*-
 
-def checkUnderbar(temp_str: str) -> list:
+def checkUnderbar(temp_str: str, func_name: str) -> list:
     first, *others = temp_str.split("_")
-    return [first, *map(str.title, others)]
+    first = getattr(first[0], func_name)() + first[1:]
+    return ''.join([first, *map(str.title, others)])
 
 def camelCase(name:str) -> str:
     """
     camelCase
     """
-    ret_name = checkUnderbar(name)
-    first = ret_name[0]
-    ret_name[0] = first[0].lower() + first[1:]
-    return ''.join(ret_name)
+    return checkUnderbar(name, 'lower')
 
 def pascalCase(name: str) -> str:
     """
     PascalCase
     """
-    ret_name = checkUnderbar(name)
-    first = ret_name[0]
-    ret_name[0] = first[0].upper() + first[1:]
-    return ''.join(ret_name)
+    return checkUnderbar(name, 'upper')
 
 def snakeCase(name: str) -> str:
     """
@@ -44,5 +39,4 @@ def test_solution():
     assert snakeCase("TestSolution") == "test_solution"
     assert snakeCase("test_solution") == "test_solution"
 
-
-print(pascalCase("testSolution"))
+camelCase("test_solution")

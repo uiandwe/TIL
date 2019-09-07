@@ -1,21 +1,16 @@
 # -*- coding: utf-8 -*-
 
-def checkUnderbar(temp_str: str) -> str:
-    ret_name = [temp_str[0]]
-    for index in range(1, len(temp_str)):
-        if temp_str[index - 1] == "_":
-            ret_name.append(temp_str[index].upper())
-        elif temp_str[index] != "_":
-            ret_name.append(temp_str[index])
-    return ret_name
+def checkUnderbar(temp_str: str) -> list:
+    first, *others = temp_str.split("_")
+    return [first, *map(str.title, others)]
 
 def camelCase(name:str) -> str:
     """
     camelCase
     """
     ret_name = checkUnderbar(name)
-
-    ret_name[0] = ret_name[0].lower()
+    first = ret_name[0]
+    ret_name[0] = first[0].lower() + first[1:]
     return ''.join(ret_name)
 
 def pascalCase(name: str) -> str:
@@ -23,7 +18,8 @@ def pascalCase(name: str) -> str:
     PascalCase
     """
     ret_name = checkUnderbar(name)
-    ret_name[0] = ret_name[0].upper()
+    first = ret_name[0]
+    ret_name[0] = first[0].upper() + first[1:]
     return ''.join(ret_name)
 
 def snakeCase(name: str) -> str:
@@ -38,11 +34,15 @@ def snakeCase(name: str) -> str:
 def test_solution():
     assert camelCase("test_solution") == "testSolution"
     assert camelCase("TestSolution") == "testSolution"
+    assert camelCase("testSolution") == "testSolution"
 
     assert pascalCase("test_solution") == "TestSolution"
     assert pascalCase("testSolution") == "TestSolution"
+    assert pascalCase("TestSolution") == "TestSolution"
 
     assert snakeCase("testSolution") == "test_solution"
     assert snakeCase("TestSolution") == "test_solution"
+    assert snakeCase("test_solution") == "test_solution"
 
 
+print(pascalCase("testSolution"))

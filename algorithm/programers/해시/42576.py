@@ -5,6 +5,9 @@ def solution(participant, completion):
     dict = collections.Counter(participant) - collections.Counter(completion)
     return ''.join(dict.keys())
 
+def solution2(participant, completion):
+    answer = collections.Counter(participant) - collections.Counter(completion)
+    return list(answer.keys())[0]
 
 def test_solution():
     assert solution(["leo", "kiki", "eden"], ["eden", "kiki"]) == "leo"

@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 
 import turtle
+import time
 wn = turtle.Screen()
 wn.bgcolor("black")
 wn.setup(width=600, height=600)
 wn.title("시발")
-
+wn.tracer(0)
 
 pen = turtle.Turtle()
 pen.hideturtle()
@@ -20,7 +21,6 @@ def draw_clock(h, m, s, pen):
     pen.color("green")
     pen.pendown()
     pen.circle(210)
-
 
     pen.penup()
     pen.goto(0, 0)
@@ -52,7 +52,7 @@ def draw_clock(h, m, s, pen):
     angle = (m / 60) * 360
     pen.rt(angle)
     pen.pendown()
-    pen.fd(200)
+    pen.fd(150)
 
     # draw second
     pen.penup()
@@ -62,8 +62,17 @@ def draw_clock(h, m, s, pen):
     angle = (s / 60) * 360
     pen.rt(angle)
     pen.pendown()
-    pen.fd(50)
+    pen.fd(200)
 
 
-draw_clock(10, 15, 00, pen)
+while True:
+    h = int(time.strftime("%I"))
+    m = int(time.strftime("%M"))
+    s = int(time.strftime("%s"))
+
+    draw_clock(h, m, s, pen)
+    wn.update()
+    time.sleep(1)
+    pen.clear()
+
 wn.mainloop()

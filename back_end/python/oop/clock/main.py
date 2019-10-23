@@ -12,7 +12,8 @@ pen.hideturtle()
 pen.speed(0)
 pen.pensize(3)
 
-def draw_clock(pen):
+
+def draw_clock(h, m, s, pen):
     pen.up()
     pen.goto(0, 210)
     pen.setheading(180)
@@ -25,7 +26,6 @@ def draw_clock(pen):
     pen.goto(0, 0)
     pen.setheading(90)
 
-
     for _ in range(12):
         pen.fd(190)
         pen.pendown()
@@ -34,5 +34,36 @@ def draw_clock(pen):
         pen.goto(0, 0)
         pen.rt(30)
 
-draw_clock(pen)
+    # draw hour
+    pen.penup()
+    pen.goto(0, 0)
+    pen.color("white")
+    pen.setheading(90)
+    angle = (h/12) * 360
+    pen.rt(angle)
+    pen.pendown()
+    pen.fd(100)
+
+    # draw minute
+    pen.penup()
+    pen.goto(0, 0)
+    pen.color("blue")
+    pen.setheading(90)
+    angle = (m / 60) * 360
+    pen.rt(angle)
+    pen.pendown()
+    pen.fd(200)
+
+    # draw second
+    pen.penup()
+    pen.goto(0, 0)
+    pen.color("gold")
+    pen.setheading(90)
+    angle = (s / 60) * 360
+    pen.rt(angle)
+    pen.pendown()
+    pen.fd(50)
+
+
+draw_clock(10, 15, 00, pen)
 wn.mainloop()

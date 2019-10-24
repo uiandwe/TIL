@@ -1,3 +1,26 @@
+# top-down
+# -*- coding: utf-8 -*-
+def solution(n):
+    d = [0 for x in range(n+1)]
+    if n == 1: return 0
+    if d[n] > 0: return d[n]
+
+    d[n] = solution(n-1)+1
+    if n % 2 == 0:
+        d[n] = min(solution(n//2)+1, d[n])
+
+    if n % 3 == 0:
+        d[n] = min(solution(n//3)+1, d[n])
+
+    return d[n]
+
+
+assert solution(10) == 3
+assert solution(2) == 1
+
+
+
+
 def solution(n):
 
     d = [0 for x in range(20)]

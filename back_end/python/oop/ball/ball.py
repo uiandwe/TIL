@@ -9,27 +9,32 @@ wn.tracer(0)
 
 balls = []
 
-for _ in range(10):
+for _ in range(25):
     balls.append(turtle.Turtle())
+
+colors = ["red", "blue", "yellow", "orange", "green", "white", "purple"]
 
 
 for ball in balls:
     ball.shape("circle")
-    ball.color("green")
+    ball.color(random.choices(colors))
     ball.penup()
     ball.speed(0)
     x = random.randint(-290, 290)
-    ball.goto(x, 200)
+    y = random.randint(200, 400)
+    ball.goto(x, y)
     ball.dy = 0
-    ball.dx = 2
+    ball.dx = random.randint(-3, 3)
+    ball.da = random.randint(-5, 3)
 
 
 gravity = 0.1
 
 while True:
     wn.update()
-    
+
     for ball in balls:
+        ball.rt(ball.da)
         ball.dy -= gravity
         ball.sety(ball.ycor() + ball.dy)
         ball.setx(ball.xcor() + ball.dx)
@@ -43,6 +48,7 @@ while True:
 
         # bounce
         if ball.ycor() < -300:
+            ball.sety(-300)
             ball.dy *= -1
 
 

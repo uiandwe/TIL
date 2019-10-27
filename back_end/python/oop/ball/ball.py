@@ -1,55 +1,44 @@
 # -*- coding: utf-8 -*-
-import turtle
 import random
 
-wn = turtle.Screen()
-wn.bgcolor("black")
-wn.title("ball simulator")
-wn.tracer(0)
 
-balls = []
+class Ball:
 
-for _ in range(25):
-    balls.append(turtle.Turtle())
+    def __init__(self, b):
+        colors = ["red", "blue", "yellow", "orange", "green", "white", "purple"]
+        self.ball = b
+        self.ball.shape("circle")
+        self.ball.color(random.choices(colors))
+        self.ball.penup()
+        self.ball.speed(0)
 
-colors = ["red", "blue", "yellow", "orange", "green", "white", "purple"]
+        x = random.randint(-290, 290)
+        y = random.randint(200, 400)
 
+        self.ball.goto(x, y)
+        self.ball.dy = 0
+        self.ball.dx = random.randint(-3, 3)
+        self.ball.da = random.randint(-5, 3)
 
-for ball in balls:
-    ball.shape("circle")
-    ball.color(random.choices(colors))
-    ball.penup()
-    ball.speed(0)
-    x = random.randint(-290, 290)
-    y = random.randint(200, 400)
-    ball.goto(x, y)
-    ball.dy = 0
-    ball.dx = random.randint(-3, 3)
-    ball.da = random.randint(-5, 3)
+    def move(self):
+        gravity = 0.1
 
-
-gravity = 0.1
-
-while True:
-    wn.update()
-
-    for ball in balls:
-        ball.rt(ball.da)
-        ball.dy -= gravity
-        ball.sety(ball.ycor() + ball.dy)
-        ball.setx(ball.xcor() + ball.dx)
+        self.ball.rt(self.ball.da)
+        self.ball.dy -= gravity
+        self.ball.sety(self.ball.ycor() + self.ball.dy)
+        self.ball.setx(self.ball.xcor() + self.ball.dx)
 
         # wall check
-        if ball.xcor() > 300:
-            ball.dx *= -1
+        if self.ball.xcor() > 300:
+            self.ball.dx *= -1
 
-        if ball.xcor() < -300:
-            ball.dx *= -1
+        if self.ball.xcor() < -300:
+            self.ball.dx *= -1
 
         # bounce
-        if ball.ycor() < -300:
-            ball.sety(-300)
-            ball.dy *= -1
+        if self.ball.ycor() < -300:
+            self.ball.sety(-300)
+            self.ball.dy *= -1
 
-
-wn.mainloop()
+    def crash(self):
+        pass

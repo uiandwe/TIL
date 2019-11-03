@@ -4,8 +4,10 @@ from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup as bs
 from openpyxl import Workbook
 import time
+import os
 
-cd = "/Users/sj.hyeon/development/test/python_class/chromedriver"
+file_path = os.path.dirname(os.path.realpath(__file__))
+cd = os.path.join(file_path, "chromedriver")
 driver = webdriver.Chrome(cd)
 driver.get("https://www.youtube.com/")
 
@@ -48,6 +50,6 @@ for sheet in keyword:
     search.send_keys(Keys.DELETE)
     time.sleep(2)
 
-wb.save('/Users/sj.hyeon/development/test/python_class/test.xlsx')
+wb.save(os.path.join(file_path, "test.xlsx"))
 driver.close()
 

@@ -1,0 +1,50 @@
+Abstract
+* 암호화 해싱 암고리즘을 구현하는 md5, sha와 같은 여러가지 다른 모듈이 있다. 이 문서는 서로 다른 모듈 사이를 쉽게 전환 할수 있도록 표준 API를 지정한다. 
+
+specification
+1. 해시 함수 모듈 정의 
+    1. 새로운 해싱 객체를 만들어 반환 
+    2. 해싱 객체를 생성한 후에는 update() 메소드를 통해 임의의 문자열 객체를 공급할 수 있다
+    3. digest() 메소드를 호출하여, 해시값을 얻을 수 있다
+
+new([string])            (unkeyed hashes)
+new([key] , [string])    (keyed hashes)
+
+2. digest_size
+    * 해싱 객체가 생성한 digest 크기를 바이트 단위로 측정
+
+3. Copy()
+    * 해싱 객체의 사본 반환
+
+4. Digest()
+    * 해시값을 8비트 데이터가 포함된 문자열로 반환
+
+5. hexdigest()
+    * 해시값을 16 진수가 포함된 문자열로 반환
+
+6. Update(string)
+    * 해당 문자열을 객체의 현재 상태(변환할 문자열)로 저장
+
+# -*- coding: utf-8 -*-
+from Crypto.Hash import MD5
+import logging
+
+
+if __name__ == '__main__':
+    logging.basicConfig(level=logging.INFO)
+
+
+    m = MD5.new()
+    logging.info(m.digest_size)
+
+
+    m.update('abc')
+    logging.info(m.digest())
+    logging.info(m.digest())
+
+
+    logging.info(m.hexdigest())
+
+
+    logging.info(MD5.new('abc').digest())
+

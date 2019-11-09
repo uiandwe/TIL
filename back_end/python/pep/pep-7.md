@@ -38,7 +38,8 @@ extra_ivars(PyTypeObject *type, PyTypeObject *base)
 }
 </pre>
 
-    *     If / for 의 구문 사이엔 공백이 하나 있어야 한다. 
+* If / for 의 구문 사이엔 공백이 하나 있어야 한다. 
+    
 <pre>
 if (mro != NULL) {
     ...
@@ -48,7 +49,9 @@ else {
 }
 </pre>
 
-    * 긴줄은 쉼표를 기준으로 적절하게 들여쓰기를 한다. 
+
+* 긴줄은 쉼표를 기준으로 적절하게 들여쓰기를 한다. 
+
 
 <pre>
 PyErr_Format(PyExc_TypeError,
@@ -56,8 +59,9 @@ PyErr_Format(PyExc_TypeError,
              type->tp_name);
 </pre>
 
-    * 주석은 설명하는 코드 앞에 온다
-    * 모든 함수와 전역변수는 게시된 인터페이스에 속하지 않는 한 정적으로 선언한다
+
+* 주석은 설명하는 코드 앞에 온다
+* 모든 함수와 전역변수는 게시된 인터페이스에 속하지 않는 한 정적으로 선언한다
 
 
 

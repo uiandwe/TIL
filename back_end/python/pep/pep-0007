@@ -24,7 +24,7 @@
         * 다음열에 중괄호 
         * 지역 변수 선언 후 빈줄 추가 
         * 예시
-<pre>                     
+                   
 static int
 extra_ivars(PyTypeObject *type, PyTypeObject *base)
 {
@@ -36,11 +36,11 @@ extra_ivars(PyTypeObject *type, PyTypeObject *base)
     ...
     return 1;
 }
-</pre>
+
 
 * If / for 의 구문 사이엔 공백이 하나 있어야 한다. 
     
-<pre>
+
 if (mro != NULL) {
     ...
 }
@@ -53,11 +53,11 @@ else {
 * 긴줄은 쉼표를 기준으로 적절하게 들여쓰기를 한다. 
 
 
-<pre>
+
 PyErr_Format(PyExc_TypeError,
              "cannot create '%.100s' instances",
              type->tp_name);
-</pre>
+
 
 
 * 주석은 설명하는 코드 앞에 온다

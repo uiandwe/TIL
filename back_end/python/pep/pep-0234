@@ -1,0 +1,97 @@
+iterators
+
+
+Abstract
+* for루프의 동작을 제어하기 위해 객체가 제공할 수 있는 반복 인터페이스 제안
+* 반복자는 반복자 객체를 생성하는 메소드를 제공
+* 호출 할 때마다 다음 항목을 순서대로 생성하는 다음값 가져오기 조작을 제공
+* 더 이상 사용 가능한 항목이 없는 경우 예외를 발생
+
+
+C API 사양
+* StopIteration - 반복 종료 
+* Tp_iter - 반복 객체 구조, pyobject_GetIter()를 통해 호출
+* Tp_iternext - 다음값 리턴 , PyIter_Next()를 통해 호출
+    * 해당 값이 없을 경우 StopIteration 예외 발생
+
+
+Python api 사양
+* StopIteration 표준 예외로 Exception에서 파생
+* Iter()가 정의되어 있으며, 두가지 방법으로 호출 가능
+    * Iter(obj)는 pyobject_GetIter(obj)를 호출
+    * iter(callable, sentinel) 는 callable을 호출하여 새로운 값을 생성하고 반환 값을 센티넬 값과 비교하는 특별한 종류의 반복자를 반환
+* Next()는 다음 값을 리턴, 
+* next()시 값이 없으면 반복 종료인 StopIteration 발생
+    * 오류가 아니라 반복이 끝났다는것으로 정상적으로 종료되어야 한다
+* class는 __iter__() 메소드를 정의하여 반복을 정의할 수 있다
+    * 추가 인수를 받지 않고 유효한 반복자 객체를 반환 해야 한다
+    * Next()와 self를 리턴하는 __iter__ 메소드를 구현해야 한다
+
+
+
+Dictionary Iterators
+
+* 아래의 두 소스는 같은 역활을 한다. 
+if k in dict: ...
+
+if dict.has_key(k): ...
+
+
+* 딕셔너리의 반복자는 내부적으로 tp_iter 을 구현되어 있다. 
+* for에서의 역활은 같으나 dict.keys()가 내부적으로 더 빠르다
+for k in dict: ...
+
+for k in dict.keys(): ...
+
+
+* 리턴값을 명시하기 위해 다음의 메소드를 쓰면 된다. 
+for key in dict.iterkeys(): ...
+
+for value in dict.itervalues(): ...
+
+for key, value in dict.iteritems(): ...
+
+
+
+File Iterators
+
+* 파일은 iter (f.readline, "") 와 동등한 tp_iter 슬롯을 구현
+for line in file:
+    …
+
+* 파일 리드 줄임
+for line in iter(file.readline, ""):
+    …
+
+* 가장 빠름
+while 1:
+    line = file.readline()
+    if not line:
+        break
+    ...
+
+
+* 파일 반복자는 내부 버퍼를 통해 작동하므로 아래는 동작하지 않습니다. 
+for line in file:
+    if line == "\n":
+        break
+for line in file:
+   print line
+* 외부 iter()를 활용하여 다음과 같이 쓸 수 있습니다.
+it = iter(file)
+for line in it:
+    if line == "\n":
+        break
+for line in it:
+    print line,
+
+
+
+Rationale
+* 확장 가능한 반복자 인터페이스를 제공합니다. 
+* 딕셔너리 반복의 성능을 향상 시킵니다. 
+* 요소의 임의 접근을 하지 않고 반복을 통한 인터페이스를 제공하게 합니다.
+* {__getitem__ , keys , values , items } 의 서브 세트인 맵핑과 시퀀스,  클래스와 오브제트와 호환/확장 됩니다. 
+* 비 시퀀스 컬렉션에 대해 반복을 통해 간결하게 합니다. 
+
+

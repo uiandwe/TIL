@@ -1,0 +1,23 @@
+<html>
+    <head>
+            <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+                <span>메시지: {{ msg }}</span>
+                <span v-once>다시는 변경하지 않습니다: {{ msg }}</span>
+                <div v-bind:id="dynamicId"></div>
+        </div>
+            
+    </body>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '메시지'
+            }
+        })
+
+        vm.$data.msg = '변경'
+    </script>
+</html>

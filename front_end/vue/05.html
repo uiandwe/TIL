@@ -1,0 +1,39 @@
+<html>
+    <head>
+            <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+            <div
+            class="static"
+            v-bind:class="{ active: isActive, 'text-danger': hasError }"
+            ></div>
+
+            <div v-bind:class="classObject"></div>
+        </div>
+            
+        <my-component v-bind:class="{ active: isActive }"></my-component>
+    </body>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                isActive: true,
+                hasError: false
+            },
+            computed: {
+                classObject: function () {
+                    return {
+                    active: this.isActive && !this.error,
+                    'text-danger': this.error && this.error.type === 'fatal'
+                    }
+                }
+            }
+        })
+
+        Vue.component('my-component', {
+            template: '<p class="foo bar">Hi</p>'
+        })
+
+    </script>
+</html>

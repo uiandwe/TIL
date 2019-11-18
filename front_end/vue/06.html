@@ -1,0 +1,76 @@
+<html>
+    <head>
+            <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+            <div id="app">
+                <h1 v-if="ok">YES</h1>
+                <h1 v-else>No</h1>
+
+
+                <template v-if="ok">
+                    <h1>title</h1>
+                    <p>pargraph 1</p>
+                    <p>pargraph 2</p>
+                </template>
+
+                <div v-if="Math.random() > 0.5">
+                    보이나?
+                </div>
+                <div v-else>
+                    안보임
+                </div>
+
+                <div v-if="type === 'A'">
+                A
+                </div>
+                <div v-else-if="type === 'B'">
+                B
+                </div>
+                <div v-else-if="type === 'C'">
+                C
+                </div>
+                <div v-else>
+                Not A/B/C
+                </div>
+
+                <template v-if="loginType === 'username'">
+                    <label>사용자 이름</label>
+                    <input placeholder="사용자 이름을 입력하세요">
+                </template>
+                <template v-else>
+                    <label>이메일</label>
+                    <input placeholder="이메일 주소를 입력하세요">
+                </template>
+                <button v-on:click="changeLoginType()">로그인 유형 변경</button>
+
+
+                <h1 v-show="ok">안녕!!</h1>
+            </div>
+
+            
+    </body>
+    <script>
+        var vif = ['A', 'B', 'C', 'D']
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                ok: true,
+                type: vif[Math.floor(Math.random() * 3) + 1],
+                loginType: 'username'
+            },
+            methods: {
+                changeLoginType: function(){
+                    if (this.loginType === 'username'){
+                        this.loginType = 'email'
+                    }
+                    else{
+                        this.loginType = 'username'
+                    }
+                    
+                }
+            }
+        })
+    </script>
+</html>

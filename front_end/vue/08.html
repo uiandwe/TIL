@@ -1,0 +1,65 @@
+<html>
+    <head>
+            <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="example-1">
+            <button v-on:click="counter += 1">Add 1</button>
+            <p>위 버튼을 클릭한 횟수는 {{ counter }} 번 입니다.</p>
+        </div>
+
+        <div id="example-2">
+            <button v-on:click="greet">Greet</button>
+        </div>
+
+        <div id="example-3">
+            <button v-on:click="say('hi')">hi</button>
+            <button v-on:click="say('fuck')">fuck</button>
+            <button v-on:click="warn('submit', $event)">submit</button>
+        </div>
+
+        
+    </body>
+    <script>
+        var example1 = new Vue({
+            el: '#example-1',
+            data: {
+                counter: 0
+            }
+        })
+
+        var example2 = new Vue({
+            el: '#example-2',
+            data: {
+                name: 'vue.js'
+            },
+            methods: {
+                greet: function(event){
+                    alert('hell ' + this.name);
+                    if (event){
+                        alert(event.target.tagName);
+                    }
+                }
+            }
+        })
+
+        var example3 = new Vue({
+            el: '#example-3',
+            data: {
+
+            },
+            methods: {
+                say: function(str){
+                    alert(str);
+                },
+                warn: function(message, event){
+                    if (event) event.preventDefault();
+                    alert(message);
+                }
+            }
+        })
+
+
+
+    </script>
+</html>

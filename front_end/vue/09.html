@@ -1,0 +1,86 @@
+<html>
+    <head>
+            <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="example-1">
+            <input v-model="message">
+            <p>{{message}}</p>
+            <br>
+            <textarea v-model="message" placeholder="여러줄을 입력해보세요"></textarea>
+            <br>
+            <input type="checkbox" id="checkbox" v-model="checked">
+            <label for="checkbox">{{ checked }}</label>
+        </div>
+        
+        <div id="example-3">
+            <input type="checkbox" id="jack" value="jack" v-model="checkedNames">
+            <label for="jack">jack</label>
+
+            <input type="checkbox" id="sj" value="sj" v-model="checkedNames">
+            <label for="sj">sj</label>
+
+            <input type="checkbox" id="mike" value="mike" v-model="checkedNames">
+            <label for="mike">mike</label>
+            <br>
+
+            <span>{{checkedNames}}</span>
+            <hr>
+
+            <input type="radio" id="one" value="one" v-model="picked">
+            <label for="one">one</label>
+            <br>
+            <input type="radio" id="two" value="two" v-model="picked">
+            <label for="two">two</label>
+            <br>
+            <span>{{picked}}</span>
+
+
+            <hr>
+
+            <select v-model="selected">
+                <option disabled value=""> select one</option>
+                <option>A</option>
+                <option>c</option>
+                <option>d</option>
+                <option>fuck</option>
+            </select>
+
+            <select v-model="selected">
+                <option v-for="option in options" v-bind:value="option.value">
+                    {{option.text}}
+                </option>
+            </select>
+
+            <select v-model="selected">
+            <option value="abc">ABC</option>
+            </select>
+
+            <span>{{selected}}</span>
+        </div>
+    </body>
+    <script>
+        var example1 = new Vue({
+            el:'#example-1',
+            data: {
+                message: '',
+                checked: true
+            },
+        });
+
+        var exmaple3 = new Vue({
+            el: '#example-3',
+            data:  {
+                checkedNames: [],
+                picked: [],
+                selected: 'c',
+                options: [
+                    {text: 'A', value: 'A'},
+                    {text: 'c', value: 'c'},
+                    {text: 'd', value: 'd'},
+                    {text: 'fuck', value: 'fuck'}
+                ]
+            }
+        });
+    </script>
+</html>

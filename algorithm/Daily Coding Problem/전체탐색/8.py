@@ -12,23 +12,20 @@ Do this in O(N) time.
 
 """
 
-def get_max_sum(n):
-    d = [0 for x in n]
-    p = n[0] if n[0] > 0 else 0
-    d[0] = p
+def get_max_subarray(n):
 
-    for i in range(1, len(n)):
-        if p + n[i] > 0:
-            p += n[i]
-        else:
-            p = 0
+    if not n or max(n) < 0:
+        return 0
 
-        d[i] = p
+    current_p = n[0]
+    overall_p = n[0]
 
-    print(d)
-    return max(d)
+    for val in n[1:]:
+        current_p = max(val, current_p+val)
+        overall_p = max(current_p, overall_p)
 
+    return overall_p
 
-
-assert get_max_sum([34, -50, 42, 14, -5, 86]) == 137
-assert get_max_sum([-5, -1, -8, -9]) == 0
+assert get_max_subarray([34, -50, 42, 14, -5, 86]) == 137
+assert get_max_subarray([-5, -1, -8, -9]) == 0
+assert get_max_subarray([44, -5, 42, 14, -150, 86]) == 95

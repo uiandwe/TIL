@@ -1,0 +1,74 @@
+pep-272 Block En cryption algorithms
+
+소개
+암호화 알고리즘은 변수키에 의존하여 암호문을 생성하는 방식으로 입력 데이터(일반 텍스트)를 변환합니다. 키를 알고 있는 경우에만 되돌릴수 있습니다. 키는 매우 큰 값의 선택된 일련의 비트 입니다. 암호화 알고리즘에는 블록암호와 스트림암호 두가지 클래스가 있습니다. 
+
+
+사양
+
+Number      Constant    Description
+1           MODE_ECB    Electronic Code Book 
+2           MODE_CBC    Cipher Block Chaining 
+3           MODE_CFB    Cipher Feedback 
+5           MODE_OFB    Output Feedback 
+6           MODE_CTR    Counter 
+
+
+new(key, mode, [IV], **kwargs)
+문자열 ‘key’는 비밀키로, 피드백모드인 ‘mode’를 사용하여 위의 표 상수 중 하나인 암호화 오브젝트를 리턴합니다. 
+
+암호화 모듈을 구현하기 위해 아래의 사양을 따라야 합니다.
+
+비밀키 암호화는 두가지 변수를 정의해야 합니다. 
+* Blocksize
+    * 정수값. 암호화된 블록크기는 encrypt () 및 decrypt ()에 전달 된 문자열의 길이는 블록 크기의 배수 여야합니다.
+* key_size 
+    * 정수값. key_size가 None이면 알고리즘은 가변 길이 키를 허용합니다. 
+
+암호 객체에는 두가지 속성이 있어야 합니다. 
+* Block_size
+    * 암호화 한 블록 크기와 동일한 정수 값.
+* IV
+    * 암호 피드백 모드를 시작하는 데 사용될 초기 값을 포함합니다. 항상 길이가 정확히 한 블록 인 문자열입니다. 문자열을 암호화 또는 해독 한 후이 값은 수정 된 피드백 텍스트를 반영하도록 업데이트됩니다. 읽기 전용이며 새 값을 할당 할 수 없습니다.
+    * _
+암호 객체에는 다음 방법이 필요합니다. 
+* 해독(문자열)
+    * 객체의 키 종속 데이터와 적절한 피드백 모드를 사용하여 ‘문자열’을 해독합니다. 문자열의 길이는 알고리즘 블록 크기의 정확한 배수이거나 CFB모드에서 세그먼트 크기의 정확한 배수 여야 합니다. 평문 문자열을 반환합니다. 
+* 암호화(문자열)
+    * 개체의 키 종속 데이터를 사용하고 적절한 피드백 모드를 사용하여 비어 있지 않은 문자열을 암호화 합니다. 암호문이 ㅣ포함된 문자열을 반환합니다. 
+
+DES 모듈 사용예
+# -*- coding: utf-8 -*-
+# pip3 install pycrypto
+
+
+from Crypto.Cipher import DES3
+
+
+obj = DES3.new(b'Sixteen byte key', DES3.MODE_ECB)
+plaintext = "Guido van Rossum is a space alien."
+print(len(plaintext))
+
+
+# print(obj.encrypt(plaintext))
+"""
+Traceback (most recent call last):
+  File "/Users/sj.hyeon/development/test/pep/pep-272.py", line 10, in <module>
+    print(obj.encrypt(plaintext))
+  File "/Users/sj.hyeon/development/env/python36/lib/python3.6/site-packages/Crypto/Cipher/blockalgo.py", line 244, in encrypt
+    return self._cipher.encrypt(plaintext)
+ValueError: Input strings must be a multiple of 8 in length
+"""
+ciphertext = obj.encrypt(plaintext+'XXXXXX')
+print(ciphertext)
+# b'\x11T\x9f\xe9\x8e\xccZa\xec\xf7C\xdb\x822\x87P\xb1s\x1b]r\x07\xb1<o\x9a>\xc9\x81\xc6i\xd4\x81\x9bZw#<\xe9\x1e'
+
+
+print(obj.decrypt(ciphertext))
+# b'Guido van Rossum is a space alien.XXXXXX'
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+Per user site-packages directory
+
+
+* 사용자가 자신의 홈 디렉토리에 python 패키지를 로컬로 설치 할수 있도록 새로운 사용자별 사이트 패키지 디렉토리 제안
+
+.env var는 sys.path의 시작 부분에 새 디렉토리를 삽입하지만 디렉토리의 python파일을 구문을 분석하지 않습니다. 여러 응용 프로그램 및 python에 완전한 사이트 패키지 경로가 필요합니다. 
+
+사이트 디렉토리 (사이트 패키지)
+sys.path에 있는 디렉터리. 일반 디렉토리와 달리, 디렉토리의 pth 파일도 처리된다.
+
+사용자 디렉토리 
+유닉스 (Mac OS X 포함)
+~ / .local / lib / python2.6 / site-packages
+윈도우
+% APPDATA % / Python / Python26 / site-packages
+
+
+사용자 데이터 디렉토리 
+유닉스 (Mac 포함)
+~ / .local / lib / python2.6
+윈도우
+% APPDATA % / Python / Python26
+
+
+사용자 기본 디렉토리
+유닉스 (Mac 포함)
+~ / .local
+윈도우
+% APPDATA % / Python
+
+
+
+사용자 스크립트 디렉토리
+유닉스 (Mac 포함)
+~ / .local / bin
+윈도우
+% APPDATA % / Python / Scripts

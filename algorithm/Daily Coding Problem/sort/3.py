@@ -10,3 +10,6 @@ def solution(array):
 
 
 assert solution([-9, -2, 0, 2, 3]) == [0, 4, 4, 9, 81]
+assert solution([-9, -2, 0]) == [0, 4, 81]
+assert solution([0, 2, 3]) == [0, 4, 9]
+assert solution([-1, 1]) == [1, 1]

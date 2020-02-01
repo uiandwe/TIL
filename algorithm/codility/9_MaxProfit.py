@@ -4,6 +4,12 @@
 
 def solution(A):
     # write your code in Python 3.6
+    if len(A) == 0:
+        return 0
+
+    if len(A) == 1:
+        return A[0]
+
     n_min = float('inf')
     n_max = float('-inf')
     for a in A:

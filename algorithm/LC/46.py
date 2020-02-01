@@ -19,3 +19,19 @@ def solution(array):
 
 
 solution([1,2,3])
+
+
+# -*- coding: utf-8 -*-
+import itertools
+
+class Solution:
+    def permute(self, nums):
+
+        arr = []
+        for values in list(itertools.permutations(nums)):
+            arr.append([i for i in values])
+
+        return arr
+
+s = Solution()
+s.permute([1, 2, 3])

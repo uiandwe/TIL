@@ -1,0 +1,171 @@
+# pep-557 data classes
+
+데이터클래스 : 기본적으로 변경 가능한 명명 된 튜플
+
+* "PEP-526 변수에 대한 타입 형태 주석” 추가에 따라 클래스 정의를 검사하는 클래스 데코레이터가 제공
+
+예문
+@dataclass
+class InventoryItem:
+    '''Class for keeping track of an item in inventory.'''
+    name: str
+    unit_price: float
+    quantity_on_hand: int = 0
+
+
+    def total_cost(self) -> float:
+        return self.unit_price * self.quantity_on_hand
+
+데이터 클래스를 사용하는 것이 적절하지 않은 곳은 어디입니까?
+* 튜플 또는 dict과의 API 호환성이 필요합니다.
+* PEP 484(type hints) 및 PEP 526(변수에 대한 타입 형태 주석)에서 제공하는 것 이상의 유형 검증이 필요하거나 값 검증 또는 변환이 필요합니다.
+
+
+
+def dataclass(*, init=True, repr=True, eq=True, order=False, unsafe_hash=False, frozen=False)
+
+데코레이터의 파라미터는 클래스의 함수를 생성하며, 해당 파라미터의 값이 True이면서 해당 함수를 재선언시 typeerror가 발생한다. 
+
+dataclass는 초기 선언은 아래와 같다. 
+
+@dataclass
+class C:
+    ...
+
+
+@dataclass()
+class C:
+    ...
+
+
+@dataclass(init=True, repr=True, eq=True, order=False, unsafe_hash=False, frozen=False)
+class C:
+    ...
+
+
+* Init : 만약 True면 __ini__메소드가 생성된다. 
+* Repr : 만약 True면 __repr__ 메소드가 생성된다. 생성 된 repr 문자열은 클래스 이름과 클래스에 정의 된 순서대로 각 필드의 이름과 repr을 갖습니다. repr에서 제외 된 것으로 표시된 필드는 포함되지 않습니다
+* Eq : true (기본값)이면 __eq__ 메소드가 생성됩니다. 이 메소드는 클래스를 필드의 튜플 인 것처럼 클래스를 순서대로 비교합니다. 비교에서 두 인스턴스는 동일한 유형이어야합니다.
+* order : true (기본값은 False)이면 __lt__ , __le__ , __gt__ 및 __ge__ 메소드가 생성됩니다. 이들은 클래스를 마치 필드의 튜플 인 것처럼 비교합니다. 비교에서 두 인스턴스는 동일한 유형이어야합니다
+* unsafe_hash : False (기본값) 인 경우 eq 및 frozen 설정 방법에 따라 __hash__ 메소드가 생성됩니다 .
+* frozen : true 인 경우 (기본값은 False) 필드에 지정하면 예외가 발생합니다. 읽기 전용 고정 인스턴스를 에뮬레이트합니다.
+
+
+
+
+@dataclass
+class C:
+    a: int       # 'a' has no default value
+    b: int = 0   # assign a default value for 'b'
+
+위의 선언은 아래와 같이 변환된다. 
+
+def __init__(self, a: int, b: int = 0):
+
+
+파라미터의 선언시 field를 통해 옵션을 추가 할수 있다. 
+def field(*, default=MISSING, default_factory=MISSING, repr=True,
+          hash=None, init=True, compare=True, metadata=None)
+
+* default : 제공된 경우이 필드의 기본값입니다. 이것은 필드 호출 자체가 기본값의 정상 위치를 대체 하기 때문에 필요 합니다.
+* default_factory : 제공되는 경우이 필드에 기본값이 필요할 때 호출되는 인수가없는 인수 여야합니다. 다른 목적 중에서도 아래에서 설명하는 것처럼 변경 가능한 기본값으로 필드를 지정하는 데 사용할 수 있습니다. default 및 default_factory를 모두 지정하면 오류가 발생합니다 .
+* init : true (기본값) 인 경우이 필드는 생성 된 __init__ 메서드에 대한 매개 변수로 포함됩니다 .
+* repr : true (기본값)이면이 필드는 생성 된 __repr__ 메소드 에서 반환 한 문자열에 포함됩니다 .
+* compare : True (기본값) 인 경우이 필드는 생성 된 동등 및 비교 방법 ( __eq__ , __gt__ 등)에 포함됩니다.
+* hash : 이것은 bool 또는 None 일 수 있습니다 . True 인 경우이 필드는 생성 된 __hash__ 메소드에 포함됩니다 . 경우 없음 (기본값)의 값을 사용하지 않는 비교를 이 일반적으로 예상되는 동작 할 것이다.
+
+@dataclass
+class C:
+    x: int
+    y: int = field(repr=False)
+    z: int = field(repr=False, default=10)
+    t: int = 20
+
+생성 된 __init__ 코드는 클래스에 정의 된 경우 __post_init__ 라는 메소드를 호출합니다 . self .__ post_init __ () 로 호출됩니다
+@dataclass
+class C:
+    a: float
+    b: float
+    c: float = field(init=False)
+
+
+    def __post_init__(self):
+        self.c = self.a + self.b
+
+상속시 해당 칼럼은 오버라이딩 되며, 옵션의 Frozen이 True면 typeerror가 발생한다. (상속시 값을 할당 할 수 없기 때문에 )
+@dataclass
+class Base:
+    x: Any = 15.0
+    y: int = 0
+
+
+@dataclass
+class C(Base):
+    z: int = 10
+    x: int = 15
+Default_factory
+해당 칼럼의 속성이 가변일경우(list / dict / tuple 등) 해당 칼럼엔 default_factory를 선언해 줘야 한다.
+그렇지 않으면 해당 모든 객체들은 값은 값을 공유 한다. 
+class D:
+    x = []
+    def __init__(self, x=x):
+        self.x = x
+    def add(self, element):
+        self.x += element
+
+
+assert D().x is D().x
+
+
+헬퍼 함수들
+@dataclass
+class Point:
+     x: int
+     y: int
+
+
+@dataclass
+class C:
+     l: List[Point]
+
+
+p = Point(10, 20)
+assert asdict(p) == {'x': 10, 'y': 20}
+
+
+c = C([Point(0, 0), Point(10, 4)])
+assert asdict(c) == {'l': [{'x': 0, 'y': 0}, {'x': 10, 'y': 4}]}
+
+
+C = make_dataclass('C',
+                   [('x', int),
+                     'y',
+                    ('z', int, field(default=5))],
+                   namespace={'add_one': lambda self: self.x + 1})
+
+
+@dataclass
+class C:
+    x: int
+    y: 'typing.Any'
+    z: int = 5
+
+
+    def add_one(self):
+        return self.x + 1
+
+
+
+Custom __init__ method
+@dataclass(init=False)
+class ArgHolder:
+    args: List[Any]
+    kwargs: Mapping[Any, Any]
+
+
+    def __init__(self, *args, **kwargs):
+        self.args = args
+        self.kwargs = kwargs
+
+
+a = ArgHolder(1, 2, three=3)

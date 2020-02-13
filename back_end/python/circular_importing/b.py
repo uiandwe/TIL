@@ -12,6 +12,8 @@ class B:
         a.A("3")
 
         getattr(__import__('a'), 'A')("4")
+        
+        test = getattr(__import__('a'), 'A')
 
-
+        print(id(test("4")))
         print("init B")

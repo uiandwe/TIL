@@ -1,4 +1,4 @@
-#Timsort
+# Timsort
 
 TimSort 는 빠르고 안정적인 정렬 알고리즘으로, Python(>=2.3) 과 Java SE 7, 그리고 Android 에서 표준 정렬 알고리즘으로 사용
 

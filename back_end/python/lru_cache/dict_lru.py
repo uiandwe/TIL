@@ -28,7 +28,6 @@ def cache_test(obj):
     return obj
 
 if __name__ == '__main__':
-    # t1 = Test(10)
     dict1 = {"test": 1}
     cache_test(dict1)
 

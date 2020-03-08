@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+from .reservation import Reservation
+
+
 class Screeing:
 
     def __init__(self, movie, sequence, when_screened):
@@ -14,3 +17,11 @@ class Screeing:
 
     def get_movie_fee(self):
         return self.movie.get_fee()
+
+    def calculate_fee(self, audience_count):
+        return self.movie.calculate_movie_fee().times(audience_count)
+
+    def reserve(self, customer, audience_count):
+        return Reservation(customer, self.calculate_fee(audience_count), audience_count)
+
+

@@ -1,62 +1,37 @@
 # -*- coding: utf-8 -*-
+# pip install ring
+import ring
 
-import functools
 
-def class_cache(func):
-    cache = {}
-
-    class ToTuple:
-        def __init__(self):
-            self.array = []
-
-        def dictionary_check(self, input):
-            for key, value in input.items():
-                if isinstance(value, dict):
-                    self.dictionary_check(value)
-                    self.array.append(key)
-                elif isinstance(value, list):
-                    self.list_check(value)
-                    self.array.append(key)
-                else:
-                    self.array.append(key)
-                    self.array.append(value)
-
-        def list_check(self, input):
-            for value in input:
-                if isinstance(value, list):
-                    self.list_check(value)
-                elif isinstance(value, dict):
-                    self.dictionary_check(value)
-                else:
-                    self.array.append(value)
-
-        def __call__(self, values):
-            self.array = []
-            if isinstance(values, dict):
-                self.dictionary_check(values)
+class ToTuple:
+    def dictionary_check(self, input, array):
+        for key, value in input.items():
+            if isinstance(value, dict):
+                self.dictionary_check(value, array)
+                array.append(key)
+            elif isinstance(value, list):
+                self.list_check(value, array)
+                array.append(key)
             else:
-                self.list_check(values)
+                array.append(key)
+                array.append(value)
 
-            return tuple(self.array)
+    def list_check(self, input, array):
+        for value in input:
+            if isinstance(value, list):
+                self.list_check(value, array)
+            elif isinstance(value, dict):
+                self.dictionary_check(value, array)
+            else:
+                array.append(value)
 
-        def __hash__(self):
-            return hash(tuple(self.array))
-
-    @functools.wraps(func)
-    def wrapped(*args, **kwargs):
-        temp_args = tuple([ToTuple()(arg.__dict__) for arg in args])
-        temp_kwargs = {k: ToTuple()(v.__dict__) for k, v in kwargs.items()}
-        h = hash((temp_args, ) + tuple(temp_kwargs.items()))
-        if h in cache.keys():
-            return cache[h]
-
-        cache[h] = func(*args, **kwargs)
-        return cache[h]
-
-    return wrapped
+    def __hash__(self):
+        array = []
+        self.dictionary_check(self.__dict__, array)
+        return hash(tuple(array))
 
 
-class Test(object):
+class Test(ToTuple):
     def __init__(self, value, list="list", d={}):
         self.value = value
         self.list = list
@@ -68,10 +43,9 @@ class Test(object):
     def __str__(self):
         return "Test {}".format(self.value)
 
-
-@class_cache
+@ring.lru()
 def cache_test(obj):
-    print("obj", obj, obj, obj.value, obj.list, obj.d)
+    print("obj", obj, obj.value, obj.list, obj.d)
     return obj
 
 
@@ -85,4 +59,3 @@ if __name__ == '__main__':
     print("result", cache_test(t2))
     print("result", cache_test(t3))
     print("result", cache_test(t4))
-

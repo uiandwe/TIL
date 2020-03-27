@@ -16,6 +16,10 @@ class SequenceCondition(DiscountCondition):
         return screening.is_sequence(self.sequence)
 
 
+class Periodcondition(DiscountCondition):
+    def is_satisfied_by(self, screening):
+        return screening.get_start_time()
+
 
 if __name__ == '__main__':
     from algorithm.oop.theater.screening import Screening

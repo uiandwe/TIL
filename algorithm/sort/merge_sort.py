@@ -1,36 +1,3 @@
-def merge(leftList, rightList):
-    result = []
-    while len(leftList) > 0 and len(rightList):
-        if leftList[0] <= rightList[0]:
-            result.append(leftList.pop(0))
-        else:
-            result.append(rightList.pop(0))
-    while len(leftList) > 0:
-        result.append(leftList.pop(0))
-    while len(rightList) > 0:
-        result.append(rightList.pop(0))
-
-    return result
-
-
-def merge_sort(list):
-    if len(list) <= 1:
-        return list
-
-    mid = len(list) // 2
-    leftList = list[:mid]
-    rightList = list[mid:]
-    leftList = merge_sort(leftList)
-    rightList = merge_sort(rightList)
-
-    return merge(leftList, rightList)
-
-
-a = [9,8,7,6,5,4,3,2,1,10]
-
-print merge_sort(a)
-
-
 # -*- coding: utf-8 -*-
 def merge_sort(a):
     n = len(a)
@@ -89,10 +56,37 @@ def merge_s(array):
     return result
 
 
-
 assert merge_s([5, 1, 8, 2]) == [1, 2, 5, 8]
 assert merge_s([9,1,6,8,4,3,2,0]) == [0,1,2,3,4,6,8,9]
 
 
 
 
+def merge_sort1(array):
+    if len(array) <= 1:
+        return array
+
+    mid = len(array) // 2
+
+    m1 = merge_sort1(array[mid:])
+    m2 = merge_sort1(array[:mid])
+
+
+    result = []
+
+    while m1 and m2:
+        if m1[0] < m2[0]:
+            result.append(m1.pop(0))
+        else:
+            result.append(m2.pop(0))
+
+
+    while m1:
+        result.apend(m1.pop(0))
+    while m2:
+        result.append(m2.pop(0))
+
+    return result
+
+
+assert merge_sort1([5, 4, 3, 2, 1]) == [1, 2, 3, 4, 5]

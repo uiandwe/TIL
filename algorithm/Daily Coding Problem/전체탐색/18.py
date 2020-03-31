@@ -1,0 +1,21 @@
+"""
+Determine whether there exists a one-to-one character mapping from one string s1 to another s2.
+
+For example, given s1 = abc and s2 = bcd, return true since we can map a to b, b to c, and c to d.
+
+Given s1 = foo and s2 = bar, return false since the o cannot map to two characters.
+"""
+
+def solution(s1, s2):
+    temp_dict = {}
+    for i, val in enumerate(s1):
+        if val in temp_dict.keys():
+            if temp_dict[val] != s2[i]:
+                return False
+        else:
+            temp_dict[val] = s2[i]
+
+    return True
+
+assert solution("abc", "bcd") is True
+assert solution("foo", "bar") is False

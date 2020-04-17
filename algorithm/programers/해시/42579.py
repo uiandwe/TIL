@@ -1,27 +1,35 @@
 # -*- coding: utf-8 -*-
 from operator import itemgetter
 
+
 def solution(genres, plays):
     answer = []
+    play_total = {}
     dict = {}
-    for i, (a, b) in enumerate(zip(genres, plays)):
-        if a in dict.keys():
-            dict[a][0] = dict[a][0] + b
-            dict[a][1].append([i, b])
-            dict[a][1] = sorted(dict[a][1], key=itemgetter(1), reverse=True)
-        else:
-            dict[a] = [b, [[i, b]]]
 
-    sort_dict = sorted(dict, key=lambda k: dict[k], reverse=True)
-    for val in sort_dict:
-        for a in dict[val][1][0:2]:
-            answer.append(a[0])
+    for i, (genre, count) in enumerate(zip(genres, plays)):
+        # print(i, genre, count)
+        if genre in dict.keys():
+            play_total[genre] += count
+            dict[genre].append((count, i))
+        else:
+            dict[genre] = [(count, i)]
+            play_total[genre] = count
+
+    top_play_list = sorted(play_total, key=lambda k: play_total[k], reverse=True)
+
+    for genre in top_play_list:
+        l = sorted(dict[genre], key=itemgetter(0), reverse=True)
+        for idx, val in enumerate(l):
+            if idx >= 2:
+                break
+            answer.append(val[1])
+
     return answer
 
 
-def test_solution():
-    assert solution(["classic", "pop", "classic", "classic", "pop"], [500, 600, 150, 800, 2500]) == [4, 1, 3, 0]
+assert solution(["classic", "pop", "classic", "classic", "pop"], [500, 600, 150, 800, 2500]) == [4, 1, 3, 0]
 
 
-solution(["classic", "pop", "classic", "classic", "pop"], [500, 600, 150, 800, 2500])
+solution(["classic", "pop", "classic", "classic", "pop"], [800, 600, 500, 500, 2500])
 

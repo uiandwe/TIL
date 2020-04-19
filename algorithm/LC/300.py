@@ -1,19 +1,17 @@
 # LIS n^2
 
-d = []
-
 def solution(array):
-    for i in range(len(array)):
-        d.append(1)
+    d = [1 for x in array]
 
     for i in range(1, len(array)):
-        max = 0
         for j in range(i):
-            if array[j] < array[i] and d[j] > max:
-                max = d[j]
-        d[i] = max+1
+            if array[i] > array[j] and d[j]+1 > d[i]:
+                d[i] = d[j] + 1
 
-    print(d)
+    return max(d)
 
 
-solution([10, 9, 2, 5, 7, 101, 20])
+
+
+assert solution([10, 9, 2, 3, 6, 5, 7, 101, 20]) == 5
+assert solution([10,9,2,5,3,7,101,18]) == 4

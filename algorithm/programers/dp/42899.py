@@ -6,8 +6,8 @@ def solution(k, t):
     dp[0][t[0][0]] = t[0][1]
     dp[0][t[0][2]] = t[0][3]
 
-    for i in range(1, len(t)):
-        for j in range(k):
+    for i in range(1, len(t)): # 도시
+        for j in range(k): # 시간
             if dp[i-1][j] == 0:
                 continue
             if j + t[i][0] <= k:

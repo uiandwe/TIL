@@ -1,68 +1,58 @@
-import sys
+# -*- coding: utf-8 -*-
+class MinStack:
 
-class stack:
     def __init__(self):
+        """
+        initialize your data structure here.
+        """
         self.array = []
-        self.minIndex = -1
-        self.minValue = sys.maxsize
 
-    def initMin(self):
-        self.minIndex = -1
-        self.minValue = sys.maxsize
+    def push(self, x: int) -> None:
+        self.array.append(x)
+        return "null"
 
-    def push(self, data):
-        self.array.append(data)
-        if self.minValue > data:
-            self.minValue = data
-            self.minIndex = self.size()-1
+    def pop(self) -> None:
+        if not self.empty():
+            return self.array.pop(len(self.array)-1)
+        return "null"
 
-    def pop(self):
-        if self.empty() is False:
-            returnValue = self.array.pop(self.size() - 1)
-            self.initMin()
+    def top(self) -> int:
+        if not self.empty():
+            return self.array[len(self.array)-1]
+        return "null"
 
-            for i in range(self.size()):
-                if self.minValue > self.array[i]:
-                    self.minValue = self.array[i]
-                    self.minIndex = i
-                    break
+    def getMin(self) -> int:
+        if not self.empty():
+            min_value = min(self.array)
+            return self.array[self.array.index(min_value)]
+        return "null"
 
-            return returnValue
-        else:
-            return False
-
-    def size(self):
-        return len(self.array)
-    
     def empty(self):
-        if self.size() > 0:
+        if len(self.array) > 0:
             return False
-        else:
-            return True
+        return True
 
-    def peek(self):
-        if self.empty() is False:
-            return self.array[self.size()-1]
-        else:
-            return False
+ms = None
+answer = []
+array1 = ["MinStack","push","push","push","getMin","top","pop","getMin"]
+array2 = [[],[-2],[0],[-1],[],[],[],[]]
 
-    def getMin(self):
-        if self.empty() is False:
-            return self.minValue
-        else:
-            return False
-
-
-def solution():
-    minStack = stack()
-
-    minStack.push(-2)
-    minStack.push(0)
-    minStack.push(-3)
-    print(minStack.getMin())
-    print(minStack.pop())
-    print(minStack.getMin())
+for a1, a2 in zip(array1, array2):
+    if a1 == "MinStack":
+        ms = MinStack()
+        answer.append("null")
+    elif a1 == "push":
+        ms.push(a2[0])
+        answer.append("null")
+    elif a1 == "pop":
+        param = ms.pop()
+        answer.append("null")
+    elif a1 == "top":
+        param = ms.top()
+        answer.append(param)
+    elif a1 == "getMin":
+        param = ms.getMin()
+        answer.append(param)
 
 
-
-solution()
+print(answer)

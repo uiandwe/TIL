@@ -1,16 +1,16 @@
+# -*- coding: utf-8 -*-
+import collections
+
 class Solution:
     def groupAnagrams(self, strs):
-        d = {}
-
-        for c in strs:
-            temp = ''.join(sorted(c))
-            if temp in d:
-                d[temp].append(c)
-            else:
-                d[temp] = [c]
-
-        return list(d.values())
-
+        ans = collections.defaultdict(list)
+        for s in strs:
+            count = [0] * 26
+            for c in s:
+                count[ord(c) - ord('a')] += 1
+            print(tuple(count))
+            ans[tuple(count)].append(s)
+        return ans.values()
 
 s = Solution()
-s.groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"])
+print(s.groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))

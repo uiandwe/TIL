@@ -1,20 +1,27 @@
-def get_singles(arr):
-    xored = arr[0]
-    for num in arr[1:]:
-        xored ^= num
-    x, y = 0, 0
+# -*- coding: utf-8 -*-
+"""
+Spreadsheets often use this alphabetical encoding for its
 
-    rightmost_set_bit = (xored & ~(xored - 1))
-    for num in arr:
-        if num & rightmost_set_bit:
-            x ^= num
-        else:
-            y ^= num
+columns: "A", "B", "C", ..., "AA", "AB", ..., "ZZ", "AAA", "AAB", ....
 
-    return (x, y)
+Given a column number, return its alphabetical column id. For example,
 
+given 1, return "A". Given 27, return "AA".
 
-# Tests
+"""
 
-get_singles([2, 4, 6, 8, 10, 2, 6, 10]) == (4, 8)
-get_singles([2, 4, 8, 8, 10, 2, 6, 10]) == (4, 6)
+def solution(num):
+    answer = []
+    while num > 26:
+        ch = num % 26
+        num = num // 26
+        answer.append(chr(int(ch) + 64))
+    answer.append(chr(int(num) + 64))
+
+    return "".join(answer)
+
+assert solution(1) == "A"
+assert solution(2) == "B"
+assert solution(3) == "C"
+assert solution(26) == "Z"
+assert solution(27) == "AA"

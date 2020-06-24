@@ -11,6 +11,10 @@ func main() {
         // "welcome!" 문자열을 화면에 출력
         fmt.Fprintln(w, "welcome!")
     })
+
+    http.HandleFunc("/about", func(w http.ResponseWriter, r *http.Request) {
+        fmt.Fprintln(w, "about")
+    })
  
 
     // 8080 포트로 웹 서버 구동

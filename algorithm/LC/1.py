@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 class Solution:
     def twoSum(self, nums, target: int):
-        d = {nums[0]: 0}
-        for n in range(1, len(nums)):
-            if target - nums[n] in d.keys():
-                return d[target-nums[n]], n
+        d = {}
+        for idx, val in enumerate(nums):
+            if target - val in d.keys():
+                return [d[target - val], idx]
             else:
-                d[nums[n]] = n
+                d[val] = idx
+
 
 s = Solution()
 print(s.twoSum([2, 7, 11, 15], 9))

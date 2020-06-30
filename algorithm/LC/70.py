@@ -1,17 +1,24 @@
-def solution(state):
-    d = [0 for x in range(state+1)]
-    d[0] = 1
-    d[1] = 1
-    d[2] = 2
-    if state == 1:
-        return d[1]
+# -*- coding: utf-8 -*-
+class Solution:
 
-    for i in range(2, state+1):
-        d[i] = d[i-1] + d[i-2]
-    print(d)
-    return d[state]
+    def climbStairs(self, n: int) -> int:
+        if n <= 3:
+            return n
+
+        d = [0 for x in range(n+1)]
+        d[1] = 1
+        d[2] = 2
+        d[3] = 3
+
+        for i in range(4, len(d)):
+            d[i] = d[i-1] + d[i-2]
+
+        return d[n]
 
 
-print(solution(2))
-print(solution(3))
-print(solution(10))
+
+
+s = Solution()
+print(s.climbStairs(2))
+print(s.climbStairs(3))
+print(s.climbStairs(4))

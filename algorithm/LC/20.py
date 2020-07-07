@@ -1,41 +1,36 @@
-class stack:
-    array = []
+# -*- coding: utf-8 -*-
+class Stack:
+    def __init__(self):
+        self.array = []
 
-    def push(self, c):
-        self.array.append(c)
+    def push(self, value):
+        self.array.append(value)
 
     def pop(self):
-        if self.size() >= 0:
-            return self.array.pop(0)
-        else:
-            return False
+        if not self.empty():
+            return self.array.pop()
+        return None
 
     def size(self):
         return len(self.array)
 
+    def empty(self):
+        return False if self.size() > 0 else True
 
-def solution(str):
-    s = stack()
-    for c in str:
-        if c == '{' or c == '[' or c == '(':
-            s.push(c)
-        else:
-            popChar = s.pop()
-            if popChar is False:
-                return False
-            elif popChar == '}' and c != '{':
-                return False
-            elif popChar == ']' and c != '[':
-                return False
-            elif popChar == ')' and c != '(':
-                return False
 
-    if s.size() > 0:
-        return False
-    else:
-        return True
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = Stack()
+        for v in s:
+            if v == '(' or v == '[' or v == '{':
+                stack.push(v)
+            else:
+                temp = stack.pop()
+                if (temp == '(' and v == ')') or (temp == '[' and v == ']') or (temp == '{' and v == '}'):
+                    continue
+                else:
+                    return False
 
-print(solution("{[]}"))
-print(solution("(())"))
-print(solution("((()"))
-print(solution("())"))
+        return stack.empty()
+
+

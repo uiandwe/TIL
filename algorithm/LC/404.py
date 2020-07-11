@@ -1,46 +1,31 @@
-class Queue:
-    def __init__(self):
-        self.array = []
+# -*- coding: utf-8 -*-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def sumOfLeftLeaves(self, root: TreeNode) -> int:
+        if not root:
+            return 0
 
-    def push(self, data):
-        self.array.append(data)
+        from collections import deque
+        result = 0
+        q = deque()
+        q.append(('r', root))
 
-    def pop(self):
-        if self.empty() is False:
-            return self.array.pop(0)
-        else:
-            return False
+        while q:
+            node = q.popleft()
+            # print(node[0], node[1])
+            if node[0] == 'l' and not node[1].left and not node[1].right:
+                result += node[1].val
 
-    def empty(self):
-        if self.size() > 0:
-            return False
-        else:
-            return True
+            if node[1].left:
+                q.append(('l', node[1].left))
 
-    def size(self):
-        return len(self.array)
+            if node[1].right:
+                q.append(('r', node[1].right))
 
+        return result
 
-def solution(array):
-    q = Queue()
-    q.push(0)
-    temp = []
-    while q.empty() is False:
-        point = q.pop()
-        left = point * 2 + 1
-        right = point * 2 + 2
-        if left < len(array) and array[left] is not None:
-            childLeft = left * 2 + 1
-            if childLeft > len(array) or (len(array) > childLeft and array[childLeft] is None):
-                temp.append(array[left])
-            else:
-                q.push(left)
-        elif point % 2 == 1:
-            temp.append(array[point])
-
-        if right < len(array) and array[right] is not None:
-            q.push(right)
-
-    print(temp)
-
-solution([3, 9, 20, 1, 2, 15, 7])

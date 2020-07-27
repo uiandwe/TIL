@@ -1,22 +1,22 @@
 package main
- 
+
 import (
-    "fmt"
-    "net/http"
+	"fmt"
+	"time"
 )
- 
+
 func main() {
-    // "/" 경로로 접속했을 때 처리할 핸들러 함수 지정
-    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-        // "welcome!" 문자열을 화면에 출력
-        fmt.Fprintln(w, "welcome!")
-    })
+	go fun1()
+	for i := 0; i < 20; i++ {
+		time.Sleep(100 * time.Millisecond)
+		fmt.Println("main", i)
+	}
+	fmt.Scanln()
+}
 
-    http.HandleFunc("/about", func(w http.ResponseWriter, r *http.Request) {
-        fmt.Fprintln(w, "about")
-    })
- 
-
-    // 8080 포트로 웹 서버 구동
-    http.ListenAndServe(":8080", nil)
+func fun1() {
+	for i := 0; i < 10; i++ {
+		time.Sleep(100 * time.Millisecond)
+		fmt.Println("fun1:", i)
+	}
 }

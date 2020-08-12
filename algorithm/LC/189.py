@@ -1,9 +1,14 @@
 # -*- coding: utf-8 -*-
+from typing import *
 class Solution:
-    def rotate(self, nums, k: int):
+    def rotate(self, nums: List[int], k: int) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
         n = len(nums)
         pivot = n - (k % n)
-        return nums[pivot:] + nums[:pivot]
+        for i, v in enumerate(nums[pivot:] + nums[:pivot]):
+            nums[i] = v
 
 
 s = Solution()

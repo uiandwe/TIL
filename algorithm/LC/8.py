@@ -1,24 +1,64 @@
-def solution(numbers, target):
-    numbers.sort()
-    returnTemp = []
+# -*- coding: utf-8 -*-
+class Solution:
+    def myAtoi(self, str: str) -> int:
 
-    for i in range(len(numbers)-2):
-        partial_target = target-numbers[i]
-        j = i+1
-        k = len(numbers)-1
+        minus = False
+        plus = False
+        ret = []
+        str = str.lstrip()
+        for i, c in enumerate(str):
+            if c == "-":
+                if minus:
+                    return 0
+                minus = True
+                continue
+            elif c == "+":
+                if plus:
+                    return 0
+                plus = True
+                continue
 
-        while j < k:
-            partial_sum = numbers[j] + numbers[k]
-            if partial_sum == partial_target:
-                returnTemp.append((numbers[i], numbers[j], numbers[k]))
+            if minus and plus:
+                return 0
+
+            if c.isnumeric():
+                for j in range(i, len(str)):
+                    if str[j].isnumeric():
+                        ret.append(str[j])
+                    else:
+                        # if str[j] == '-' or str[j] == '+':
+                        #
+                        #     return 0
+                        break
                 break
-            elif partial_sum > partial_target:
-                k -= 1
             else:
-                j += 1
+                break
 
-    return returnTemp
+        if len(ret) > 0:
+            ret = int("".join(ret))
+            if minus:
+                ret *= -1
+        else:
+            return 0
+
+        if pow(2, 31) * -1 <= ret <= pow(2, 31) - 1:
+            return ret
+        elif pow(2, 31) * -1 > ret:
+            return pow(2, 31) * -1
+        else:
+            return pow(2, 31) - 1
 
 
-print(solution([19, 3, 7, 10, 11], 20))
-print(solution([20, 3, 4, 5, 6, 7, 1, 2], 26))
+
+
+if __name__ == '__main__':
+    ss = Solution()
+    print(ss.myAtoi("   -42"))
+    print(ss.myAtoi("3.14159"))
+    print(ss.myAtoi("  -0012a42"))
+    print(ss.myAtoi("+1"))
+    print(ss.myAtoi("010"))
+    print(ss.myAtoi("-2147483648"))
+    print(ss.myAtoi("0-1"))
+    print(ss.myAtoi("-5-"))
+

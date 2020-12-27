@@ -1,13 +1,14 @@
-def solution(array):
-    d = [0 for x in range(len(array))]
-    d[0] = array[0]
+# -*- coding: utf-8 -*-
+class Solution:
+    def maxSubArray(self, nums):
+        d = [0 for x in nums]
+        d[0] = nums[0]
+        for i in range(1, len(nums)):
+            d[i] = max(d[i-1]+nums[i], nums[i])
 
+        return max(d)
 
-    for i in range(1, len(array)):
-        d[i] = max(array[i], array[i]+d[i-1])
-
-    print(max(d))
-
-
-solution([-2,1,-3,4,-1,2,1,-5,4])
-solution([4, -1, 2, 1])
+s = Solution()
+print(s.maxSubArray([-2,1,-3,4,-1,2,1,-5,4]))
+print(s.maxSubArray([2, -1, 10]))
+print(s.maxSubArray([-2, -1]))

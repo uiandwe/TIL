@@ -1,17 +1,27 @@
-# LIS n^2
+# -*- coding: utf-8 -*-
+class Solution:
+    def lengthOfLIS(self, nums):
+        if len(nums) <= 0:
+            return 0
 
-def solution(array):
-    d = [1 for x in array]
+        d = [0 for x in nums]
+        d[0] = 1
 
-    for i in range(1, len(array)):
-        for j in range(i):
-            if array[i] > array[j] and d[j]+1 > d[i]:
-                d[i] = d[j] + 1
+        for i in range(1, len(nums)):
+            max_value = 0
+            for j in range(i):
+                if nums[j] < nums[i] and d[j] > max_value:
+                    max_value = d[j]
 
-    return max(d)
+            d[i] = max_value + 1
+
+        return max(d)
 
 
 
-
-assert solution([10, 9, 2, 3, 6, 5, 7, 101, 20]) == 5
-assert solution([10,9,2,5,3,7,101,18]) == 4
+s = Solution()
+# assert s.lengthOfLIS([10,9,2,5,3,7,101,18]) == 4
+# assert s.lengthOfLIS([0,1,0,3,2,3]) == 4
+# assert s.lengthOfLIS([7, 7, 7, 7]) == 1
+# assert s.lengthOfLIS([-1, 0, 1, 2, -10, 4, 5]) == 4
+assert s.lengthOfLIS([1,3,6,7,9,4,10,5,6]) == 6

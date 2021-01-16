@@ -7,13 +7,20 @@
 
 class Solution:
     def isPalindrome(self, head) -> bool:
-        d = []
+        rev = None
+        slow = fast = head
 
-        while head:
-            d.append(head.val)
-            head = head.next
-        print(d, d[::-1])
-        return d == d[:-1]
+        while fast and fast.next:
+            fast = fast.next.next
+            rev, rev.next, slow = slow, rev, slow.next
+
+        if fast:
+            slow = slow.next
+
+        while rev and rev.val == slow.val:
+            slow, rev = slow.next, rev.next
+
+        return not rev
 
 
 s = Solution()

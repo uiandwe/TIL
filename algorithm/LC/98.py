@@ -1,17 +1,26 @@
-def checkNode(index, i, array):
-    if index < len(array) and array[index] is not None:
-        if index % 2 == 0 and array[i] > array[index]:
-            return False
-        elif index % 2 == 1 and array[i] < array[index]:
-            return False
-    return True
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isValidBST(self, root: TreeNode) -> bool:
+        d = []
+        self.ret = True
 
+        def dfs(node):
+            if node:
+                if node.left:
+                    dfs(node.left)
+                if len(d) > 0 and d[-1] >= node.val:
+                    self.ret = False
 
-def solution(array):
-    for i in range(len(array)):
-        if checkNode(2 * i + 1, i,  array) & checkNode(2 * i + 2, i,  array) is False:
-            return "False"
-    return "True"
+                d.append(node.val)
 
-print(solution([2, 1, 3]))
-print(solution([5, 1, 4, None, None, 3, 6]))
+                if node.right:
+                    dfs(node.right)
+
+        dfs(root)
+
+        return self.ret

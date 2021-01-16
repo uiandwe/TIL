@@ -1,7 +1,4 @@
-# [::-1] 보다 reverse()가 더 빠르다 (훠월씬)
-# https://leetcode.com/problems/palindrome-linked-list/submissions/
-
-
+# -*- coding: utf-8 -*-
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):
@@ -11,12 +8,13 @@
 class Solution:
     def isPalindrome(self, head) -> bool:
         d = []
-        
+
         while head:
             d.append(head.val)
             head = head.next
-        
-        c = d.copy()
-        d.reverse()
-        
-        return c == d
+        print(d, d[::-1])
+        return d == d[:-1]
+
+
+s = Solution()
+print(s.isPalindrome(1))

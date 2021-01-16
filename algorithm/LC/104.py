@@ -14,18 +14,16 @@ class Solution:
         if not root:
             return 0
 
-        q = deque()
-        q.append((root, 1))
-        depth = 1
+        q = deque([root])
+        depth = 0
 
         while q:
-            node, node_depth = q.popleft()
-            depth = max(depth, node_depth)
-
-            if node.left:
-                q.append((node.left, node_depth + 1))
-
-            if node.right:
-                q.append((node.right, node_depth + 1))
+            depth += 1
+            for _ in range(len(q)):
+                node = q.popleft()
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
 
         return depth

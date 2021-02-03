@@ -1,17 +1,13 @@
 # -*- coding: utf-8 -*-
 class Solution:
     def convertToTitle(self, n: int) -> str:
-        str = ''
-        if n < 27:
-            return chr(64+n)
-
+        a = []
         while n > 0:
-            tmp = (n - 1) % 26 + ord('A')
-            n = (n - 1) // 26
-            str = chr(tmp) + str
-        return str
+            n -= 1
+            a.append(chr(65+n%26))
+            n = n//26
 
-
+        return ''.join(a[::-1])
 
 s = Solution()
 assert s.convertToTitle(1) == "A"

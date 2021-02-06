@@ -1,26 +1,29 @@
+# -*- coding: utf-8 -*-
+import math
+
+
 class Solution:
     def isHappy(self, n: int) -> bool:
-        d = []
-
+        d = set()
         while True:
+            n = self.cal(n)
             if n in d:
                 return False
-            d.append(n)
-
-            temp = 0
-            while n >= 10:
-                t = n % 10
-                temp += t * t
-                n = n // 10
-            temp += n * n
-
-            if temp == 1:
+            elif n == 1:
                 return True
+            d.add(n)
 
-            n = temp
-
-
+    def cal(self, n):
+        ret = 0
+        while n >= 10:
+            ret += pow((n % 10), 2)
+            n = n // 10
+        ret += pow(n, 2)
+        return ret
 
 
 s = Solution()
-print(s.isHappy(19))
+assert s.isHappy(19) is True
+assert s.isHappy(1) is True
+assert s.isHappy(2) is False
+assert s.isHappy(7) is True

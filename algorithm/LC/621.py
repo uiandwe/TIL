@@ -19,6 +19,29 @@ class Solution:
         ret = (max_nubmer - 1) * (n + 1) + counter
         return max(ret, len(tasks))
 
+        # 2
+        """
+        d = Counter(tasks)
+
+        result = 0
+        while True:
+            sub_count = 0
+            for task, _ in d.most_common(n + 1):
+                sub_count += 1
+                result += 1
+
+                d.subtract(task)
+                d += Counter()
+
+            if not d:
+                break
+
+            result += n - sub_count + 1
+
+        return result
+        """
+
+        # 3
         # if n == 0:
         #     return len(tasks)
         #

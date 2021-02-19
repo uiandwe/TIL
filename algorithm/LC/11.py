@@ -1,21 +1,21 @@
 # -*- coding: utf-8 -*-
 class Solution:
     def maxArea(self, height):
-        max_val = float('-inf')
-        left = 0
-        right = len(height)-1
+        l = m = 0
+        r = len(height) - 1
 
-        while left < right:
-            hl, hr = height[left], height[right]
-            max_val = max(max_val, abs(left - right) * min(hl, hr))
-            if hl < hr:
-                left += 1
+        while l < r:
+            if height[l] > height[r]:
+                m = max(height[r] * (r-l), m)
+                r -= 1
             else:
-                right -= 1
+                m = max(height[l] * (r-l), m)
+                l += 1
 
-        return max_val
-
+        return m
 
 
 s = Solution()
-s.maxArea([1,8,6,2,5,4,8,3,7])
+assert s.maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]) == 49
+assert s.maxArea([1, 1]) == 1
+assert s.maxArea([2, 1]) == 1

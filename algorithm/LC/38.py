@@ -1,22 +1,25 @@
 # -*- coding: utf-8 -*-
+
 class Solution:
     def countAndSay(self, n: int) -> str:
 
         s = "1"
 
         for _ in range(1, n):
-            ret = ""
-            cnt = 1
-            ch = s[0]
+            temp = ""
+            now = s[0]
+            count = 1
             for i in range(1, len(s)):
-                if ch == s[i]:
-                    cnt += 1
+                if now != s[i] and count > 0:
+                    temp += str(count) + now
+                    now = s[i]
+                    count = 1
                 else:
-                    ret += str(cnt) + ch
-                    cnt = 1
-                    ch = s[i]
-            s = ret + str(cnt) + ch
+                    count += 1
 
+            temp += str(count) + now
+            s = temp
+        # print(s)
         return s
 
 

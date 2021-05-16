@@ -2,27 +2,40 @@
 
 class Solution:
     def countAndSay(self, n: int) -> str:
-
         s = "1"
-
         for _ in range(1, n):
             temp = ""
-            now = s[0]
-            count = 1
+            now_ch = s[0]
+            now_cnt = 1
             for i in range(1, len(s)):
-                if now != s[i] and count > 0:
-                    temp += str(count) + now
-                    now = s[i]
-                    count = 1
+                if now_ch != s[i]:
+                    temp += str(now_cnt)+now_ch
+                    now_ch = s[i]
+                    now_cnt = 1
                 else:
-                    count += 1
-
-            temp += str(count) + now
+                    now_cnt += 1
+            temp += str(now_cnt) + now_ch
+            # print(temp)
             s = temp
-        # print(s)
         return s
 
-
+        #
+        # for _ in range(1, n):
+        #     temp = ""
+        #     now = s[0]
+        #     count = 1
+        #     for i in range(1, len(s)):
+        #         if now != s[i] and count > 0:
+        #             temp += str(count) + now
+        #             now = s[i]
+        #             count = 1
+        #         else:
+        #             count += 1
+        #
+        #     temp += str(count) + now
+        #     s = temp
+        # print(s)
+        return s
 
 
 s = Solution()
